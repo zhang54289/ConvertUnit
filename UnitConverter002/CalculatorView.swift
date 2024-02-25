@@ -132,6 +132,10 @@ struct CalculatorView: View {
         case .none:
             break
         default:
+            if (value.count + value2.count) > 15 {
+                Toast.shared.showPopup("show popup, max 15 digital")
+                return
+            }
             let number = button.rawValue
             if !isDecimal {
                 if value == "0" {

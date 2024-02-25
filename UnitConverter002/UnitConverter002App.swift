@@ -12,6 +12,7 @@ struct UnitConverter002App: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .overlay(ToastView().zIndex(1)) // Add ToastView overlay
         }
     }
 }
