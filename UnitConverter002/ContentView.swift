@@ -44,8 +44,8 @@ struct UnitMenuListView: View {
     
     struct DetailView: View {
         let unitList: [Unit]
-        @Binding var leftNumber: Float
-        @Binding var rightNumber: Float
+        @Binding var leftNumber: Double
+        @Binding var rightNumber: Double
         
         var body: some View {
             HStack {
@@ -61,7 +61,7 @@ struct UnitMenuListView: View {
     
     struct UnitView: View {
         let unit: Unit
-        @Binding var inputNumber: Float
+        @Binding var inputNumber: Double
         
         var body: some View {
             VStack {
@@ -81,7 +81,7 @@ struct UnitMenuListView: View {
     
     struct UnitListView: View {
         let list: [Unit]
-        @Binding var inputNumber: Float
+        @Binding var inputNumber: Double
         @State private var scrollProxy: ScrollViewProxy?
         
         var body: some View {

@@ -2,7 +2,7 @@ import SwiftUI
 
 class Toast: ObservableObject {
     @Published var isVisible: Bool = false
-    @Published var message: String = ""
+    @Published var content: AnyView? // AnyView allows us to store any type of view
     
     static let shared = Toast()
     
@@ -11,8 +11,9 @@ class Toast: ObservableObject {
     
     private init() {}
     
-    func showPopup(_ message: String) {
-        self.message = message
+    func showPopup<Content: View>(_ content: Content) {
+        self.content = AnyView(content)
+        
         if isVisible {
             isVisible = false
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
@@ -50,7 +51,7 @@ struct ToastView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text(toast.message)
+            toast.content // Display the content view passed to Toast
                 .padding()
                 .background(Color.white)
                 .foregroundColor(.black)

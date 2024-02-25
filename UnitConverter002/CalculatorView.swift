@@ -37,21 +37,21 @@ enum CalcButton: String {
 }
 
 struct CalculatorView: View {
-    @Binding var inputNumber: Float
+    @Binding var inputNumber: Double
 
     @State var value = "0" {
         didSet {
-            inputNumber = Float(showValue) ?? 0
+            inputNumber = Double(showValue) ?? 0
         }
     }
     @State var value2 = "" {
         didSet {
-            inputNumber = Float(showValue) ?? 0
+            inputNumber = Double(showValue) ?? 0
         }
     }
     @State var isDecimal = false {
         didSet {
-            inputNumber = Float(showValue) ?? 0
+            inputNumber = Double(showValue) ?? 0
         }
     }
     var showValue: String {
@@ -132,8 +132,8 @@ struct CalculatorView: View {
         case .none:
             break
         default:
-            if (value.count + value2.count) > 15 {
-                Toast.shared.showPopup("show popup, max 15 digital.\(Int.random(in: 0...10))")
+            if (value.count + value2.count) > Const.maxDigital {
+                Toast.shared.showPopup(Text("Only support max ") + Text("\(Const.maxDigital)").foregroundColor(.red) + Text(" digital."))
                 return
             }
             let number = button.rawValue
@@ -163,4 +163,8 @@ struct CalculatorView: View {
     func buttonHeight() -> CGFloat {
         return (UIScreen.main.bounds.width - (5*12)) / 4
     }
+}
+
+struct Const {
+    static let maxDigital: Int = 12
 }

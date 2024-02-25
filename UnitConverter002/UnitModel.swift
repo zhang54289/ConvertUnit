@@ -18,10 +18,10 @@ struct Unit: Identifiable, Equatable, Hashable {
     var id = UUID()
     var name: String
     var n: String
-    var toMetic: Float
+    var toMetic: Double
     var isEmperial: Bool
     
-    init(name: String, n: String, toMetic: Float, isEmperial: Bool) {
+    init(name: String, n: String, toMetic: Double, isEmperial: Bool) {
         self.name = name
         self.n = n
         self.toMetic = toMetic
@@ -65,8 +65,8 @@ extension UnitMenu {
 
 final class UnitMenuListViewModel: ObservableObject {
     let unitMenuList: [UnitMenu]
-    @Published var leftNumber: Float
-    @Published var rightNumber: Float
+    @Published var leftNumber: Double
+    @Published var rightNumber: Double
 
     init() {
         self.unitMenuList = [UnitMenu(name: "length", type: .length, color: .red,
