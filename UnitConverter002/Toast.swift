@@ -48,14 +48,13 @@ struct ToastView: View {
                 .padding(.vertical, 10)
                 .padding(.bottom, 10)
                 .offset(y: yOffset) // Apply vertical offset
-                .animation(.easeInOut) // Apply animation to the offset change
         }
         .frame(maxWidth: .infinity, alignment: .bottom)
         .edgesIgnoringSafeArea(.all)
         .onChange(of: toast.isVisible) { newValue in
             if newValue {
                 // Show toast with slide-in animation
-                withAnimation {
+                withAnimation(.easeInOut) {
                     yOffset = 0
                 }
                 
@@ -67,7 +66,7 @@ struct ToastView: View {
                 }
             } else {
                 // Hide toast with slide-out animation
-                withAnimation {
+                withAnimation(.easeInOut) {
                     yOffset = UIScreen.main.bounds.height
                 }
                 
