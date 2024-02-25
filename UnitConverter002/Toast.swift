@@ -7,6 +7,7 @@ class Toast: ObservableObject {
     static let shared = Toast()
     
     private var hideTimer: Timer? // Timer to delay hiding of toast
+    private var showTime: Date? // Timestamp when the toast was shown
     
     private init() {}
     
@@ -14,6 +15,10 @@ class Toast: ObservableObject {
         self.message = message
         isVisible = true
         
+        // Set the timestamp when the toast was shown
+        showTime = Date()
+        
+        // Reset the timer
         hideTimer?.invalidate() // Invalidate previous timer if exists
         hideTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
             DispatchQueue.main.async {
@@ -56,13 +61,6 @@ struct ToastView: View {
                 // Show toast with slide-in animation
                 withAnimation(.easeInOut) {
                     yOffset = 0
-                }
-                
-                // Start timer to hide toast after a delay
-                hideTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
-                    withAnimation {
-                        self.toast.isVisible = false
-                    }
                 }
             } else {
                 // Hide toast with slide-out animation

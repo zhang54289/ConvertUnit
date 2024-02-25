@@ -133,7 +133,7 @@ struct CalculatorView: View {
             break
         default:
             if (value.count + value2.count) > 15 {
-                Toast.shared.showPopup("show popup, max 15 digital")
+                Toast.shared.showPopup("show popup, max 15 digital.\(Int.random(in: 0...10))")
                 return
             }
             let number = button.rawValue
