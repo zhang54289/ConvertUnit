@@ -13,8 +13,14 @@ class Toast: ObservableObject {
     
     func showPopup(_ message: String) {
         self.message = message
-        isVisible = true
-        
+        if isVisible {
+            isVisible = false
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
+                self.isVisible = true
+            }
+        } else {
+            isVisible = true
+        }
         // Set the timestamp when the toast was shown
         showTime = Date()
         
