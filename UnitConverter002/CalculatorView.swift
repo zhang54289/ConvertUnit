@@ -167,5 +167,5 @@ struct CalculatorView: View {
 
 struct Const {
     static let maxDigital: Int = 12
-    static let spaceHeight: CGFloat = 100.0
+    static let spaceHeight: CGFloat = 110.0
 }
