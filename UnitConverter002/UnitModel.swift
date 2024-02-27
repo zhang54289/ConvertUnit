@@ -20,12 +20,14 @@ struct Unit: Identifiable, Equatable, Hashable {
     var n: String
     var toMetic: Double
     var isEmperial: Bool
+    var isFocused: Bool
     
     init(name: String, n: String, toMetic: Double, isEmperial: Bool) {
         self.name = name
         self.n = n
         self.toMetic = toMetic
         self.isEmperial = isEmperial
+        self.isFocused = false
     }
 }
 
@@ -67,6 +69,9 @@ final class UnitMenuListViewModel: ObservableObject {
     let unitMenuList: [UnitMenu]
     @Published var leftNumber: Double
     @Published var rightNumber: Double
+    @Published var leftIndex: Int
+    @Published var rifghtIndex: Int
+
 
     init() {
         self.unitMenuList = [UnitMenu(name: "length", type: .length, color: .red,
@@ -86,6 +91,8 @@ final class UnitMenuListViewModel: ObservableObject {
                                                  Unit(name: "squareMeter", n: "m2", toMetic: 1.0, isEmperial: false)])]
         self.leftNumber = 0
         self.rightNumber = 0
+        self.leftIndex = 0
+        self.rifghtIndex = 0
     }
 }
 
