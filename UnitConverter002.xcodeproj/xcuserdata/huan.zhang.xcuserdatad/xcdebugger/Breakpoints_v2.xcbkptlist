@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "22B1DE2D-7CDA-458D-878B-3C3ABC755809"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "13F81C10-49A9-4421-B4F8-A0C5047D6748"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UnitConverter002/UnitModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "13F81C10-49A9-4421-B4F8-A0C5047D6748 - e6374480ea4cb88a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; UnitConverter002.UnitMenuView in closure #1 (UnitConverter002.UnitMenu) -&gt; SwiftUI.NavigationLink&lt;UnitConverter002.UnitMenuView, UnitConverter002.DetailView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;UnitConverter002.UnitMenu&gt;, UnitConverter002.UnitMenu, SwiftUI.NavigationLink&lt;UnitConverter002.UnitMenuView, UnitConverter002.DetailView&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;Swift.Array&lt;UnitConverter002.UnitMenu&gt;, UnitConverter002.UnitMenu, SwiftUI.NavigationLink&lt;UnitConverter002.UnitMenuView, UnitConverter002.DetailView&gt;&gt;&gt;)&gt; in UnitConverter002.UnitMenuListView.body.getter : some"
+                  moduleName = "UnitConverter002"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huan.zhang/work/UnitConvert/UnitConverter002/UnitConverter002/UnitModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  uuid = "13F81C10-49A9-4421-B4F8-A0C5047D6748 - bf0aea5452c02778"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (UnitConverter002.UnitMenu) -&gt; SwiftUI.NavigationLink&lt;UnitConverter002.UnitMenuView, UnitConverter002.DetailView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;UnitConverter002.UnitMenu&gt;, UnitConverter002.UnitMenu, SwiftUI.NavigationLink&lt;UnitConverter002.UnitMenuView, UnitConverter002.DetailView&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;Swift.Array&lt;UnitConverter002.UnitMenu&gt;, UnitConverter002.UnitMenu, SwiftUI.NavigationLink&lt;UnitConverter002.UnitMenuView, UnitConverter002.DetailView&gt;&gt;&gt;)&gt; in UnitConverter002.UnitMenuListView.body.getter : some"
+                  moduleName = "UnitConverter002"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huan.zhang/work/UnitConvert/UnitConverter002/UnitConverter002/UnitModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "256">
+               </Location>
+               <Location
+                  uuid = "13F81C10-49A9-4421-B4F8-A0C5047D6748 - e6374480ea4cb8ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; UnitConverter002.UnitMenuView in closure #1 (UnitConverter002.UnitMenu) -&gt; SwiftUI.NavigationLink&lt;UnitConverter002.UnitMenuView, UnitConverter002.DetailView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;UnitConverter002.UnitMenu&gt;, UnitConverter002.UnitMenu, SwiftUI.NavigationLink&lt;UnitConverter002.UnitMenuView, UnitConverter002.DetailView&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;Swift.Array&lt;UnitConverter002.UnitMenu&gt;, UnitConverter002.UnitMenu, SwiftUI.NavigationLink&lt;UnitConverter002.UnitMenuView, UnitConverter002.DetailView&gt;&gt;&gt;)&gt; in UnitConverter002.UnitMenuListView.body.getter : some"
+                  moduleName = "UnitConverter002"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huan.zhang/work/UnitConvert/UnitConverter002/UnitConverter002/UnitModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  uuid = "13F81C10-49A9-4421-B4F8-A0C5047D6748 - c1397ebaa37eb930"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationTitle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.StringProtocol&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in closure #1 (UnitConverter002.UnitMenu) -&gt; SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.navigationTitle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.StringProtocol&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0, UnitConverter002.DetailView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;UnitConverter002.UnitMenu&gt;, UnitConverter002.UnitMenu, SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.navigationTitle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.StringProtocol&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0, UnitConverter002.DetailView&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;Swift.Array&lt;UnitConverter002.UnitMenu&gt;, UnitConverter002.UnitMenu, SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.navigationTitle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.StringProtocol&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0, UnitConverter002.DetailView&gt;&gt;&gt;)&gt; in UnitConverter002.UnitMenuListView.body.getter : some"
+                  moduleName = "UnitConverter002"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huan.zhang/work/UnitConvert/UnitConverter002/UnitConverter002/UnitModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
+                  offsetFromSymbolStart = "352">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DDB12B9F-BAB5-4CDD-A68C-71F584A645BF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UnitConverter002/UnitModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "DDB12B9F-BAB5-4CDD-A68C-71F584A645BF - 2b56d480d3f189f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;Swift.Array&lt;UnitConverter002.UnitMenu&gt;, UnitConverter002.UnitMenu, SwiftUI.NavigationLink&lt;UnitConverter002.UnitMenuView, UnitConverter002.DetailView&gt;&gt;&gt;)&gt; in UnitConverter002.UnitMenuListView.body.getter : some"
+                  moduleName = "UnitConverter002"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huan.zhang/work/UnitConvert/UnitConverter002/UnitConverter002/UnitModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "600">
+               </Location>
+               <Location
+                  uuid = "DDB12B9F-BAB5-4CDD-A68C-71F584A645BF - 82dcb9ec339115b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;UnitConverter002.UnitMenu&gt;, UnitConverter002.UnitMenu, SwiftUI.NavigationLink&lt;UnitConverter002.UnitMenuView, UnitConverter002.DetailView&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;Swift.Array&lt;UnitConverter002.UnitMenu&gt;, UnitConverter002.UnitMenu, SwiftUI.NavigationLink&lt;UnitConverter002.UnitMenuView, UnitConverter002.DetailView&gt;&gt;&gt;)&gt; in UnitConverter002.UnitMenuListView.body.getter : some"
+                  moduleName = "UnitConverter002"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huan.zhang/work/UnitConvert/UnitConverter002/UnitConverter002/UnitModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "308">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
