@@ -56,9 +56,6 @@ struct DetailView: View {
         self.unitList = unitList
         self._leftNumber = leftNumber
         self._rightNumber = rightNumber
-        
-//        self.viewModel.leftList = unitList.filter{ $0.isEmperial }
-//        self.viewModel.rightList = unitList.filter{ !$0.isEmperial }
     }
     
     var body: some View {
@@ -165,7 +162,6 @@ final class UnitViewModelModel: ObservableObject {
         $geoMidY
             .debounce(for: .seconds(0.1), scheduler: RunLoop.main)
             .sink { [weak self] _ in
-//                print("geoMidY has stabilized for 0.3 second, current value: \(self?.geoMidY ?? 0)")
                 if abs((self?.geoMidY ?? 0) - 240) < 35.5 {
                     withAnimation {
                         proxy.scrollTo(self?.scrollToID, anchor: .center)
@@ -204,7 +200,13 @@ struct UnitView: View {
                         VStack {
                             HStack {
                                 Spacer()
-                                Text(String(inputNumber))
+                                if unitViewModel.isLeft && viewModel.leftIndex == unitViewModel.index {
+                                    Text(String(inputNumber))
+                                } else if !unitViewModel.isLeft && viewModel.rightIndex == unitViewModel.index {
+                                    Text(String(inputNumber))
+                                } else {
+                                    Text(" ")
+                                }
                             }
                             HStack(spacing: 10) {
                                 Text(unit.name.capitalized)
