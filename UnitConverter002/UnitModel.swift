@@ -70,8 +70,9 @@ final class UnitMenuListViewModel: ObservableObject {
     @Published var leftNumber: Double
     @Published var rightNumber: Double
     @Published var leftIndex: Int
-    @Published var rifghtIndex: Int
-
+    @Published var rightIndex: Int
+    @Published var leftList: [Unit]
+    @Published var rightList: [Unit]
 
     init() {
         self.unitMenuList = [UnitMenu(name: "length", type: .length, color: .red,
@@ -92,7 +93,9 @@ final class UnitMenuListViewModel: ObservableObject {
         self.leftNumber = 0
         self.rightNumber = 0
         self.leftIndex = 0
-        self.rifghtIndex = 0
+        self.rightIndex = 0
+        self.leftList = []
+        self.rightList = []
     }
 }
 

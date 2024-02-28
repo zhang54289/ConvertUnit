@@ -51,14 +51,26 @@ struct DetailView: View {
     @Binding var leftNumber: Double
     @Binding var rightNumber: Double
     
+    init(viewModel: UnitMenuListViewModel, unitList: [Unit], leftNumber: Binding<Double>, rightNumber: Binding<Double>) {
+        self.viewModel = viewModel
+        self.unitList = unitList
+        self._leftNumber = leftNumber
+        self._rightNumber = rightNumber
+        
+//        self.viewModel.leftList = unitList.filter{ $0.isEmperial }
+//        self.viewModel.rightList = unitList.filter{ !$0.isEmperial }
+    }
+    
     var body: some View {
         HStack {
-            let leftList = unitList.filter{ $0.isEmperial }
-            UnitListView(viewModel: viewModel, isLeft: true, list: leftList, inputNumber: $leftNumber)
-            let rigfhtList = unitList.filter{ !$0.isEmperial }
-            UnitListView(viewModel: viewModel, isLeft: false, list: rigfhtList, inputNumber: $rightNumber)
+            UnitListView(viewModel: viewModel, isLeft: true, list: viewModel.leftList, inputNumber: $leftNumber)
+            UnitListView(viewModel: viewModel, isLeft: false, list: viewModel.rightList, inputNumber: $rightNumber)
         }
         .frame(maxHeight: .infinity)
+        .onAppear {
+            self.viewModel.leftList = unitList.filter{ $0.isEmperial }
+            self.viewModel.rightList = unitList.filter{ !$0.isEmperial }
+        }
         CalculatorView(inputNumber: $leftNumber)
     }
 }
@@ -82,13 +94,18 @@ struct UnitListView: View {
                             .frame(height: 10)
                         ForEach(list.indices, id: \.self) { index in
                             VStack(spacing: 0) {
-                                UnitView(viewModel: viewModel, unitViewModel: UnitViewModelModel(proxy, list[index].id, isLeft, index),
-                                         unit: list[index], inputNumber: $inputNumber )
+                                UnitView(viewModel: viewModel,
+                                         unitViewModel: UnitViewModelModel(proxy,
+                                                                           list[index].id,
+                                                                           isLeft, index,
+                                                                           leftFunc: { viewModel.leftIndex =  index } ,
+                                                                           rightFunc: { viewModel.rightIndex =  index} ),
+                                         unit: list[index],
+                                         inputNumber: $inputNumber )
                                     .frame(height: 60)
                                     .id(list[index].id)
                                     .onTapGesture {
                                         withAnimation {
-//                                            print("proxy.scrollTo(list[index].id, anchor: .center)")
                                             proxy.scrollTo(list[index].id, anchor: .center)
                                         }
                                     }
@@ -131,25 +148,34 @@ final class UnitViewModelModel: ObservableObject {
     var scrollToID: UUID
     let isLeft: Bool
     let index: Int
+    let leftFunc: (() -> Void)?
+    let rightFunc: (() -> Void)?
 
     private var cancellables = Set<AnyCancellable>()
 
-    init(_ proxy: ScrollViewProxy, _ scrollToID: UUID, _ isLeft: Bool, _ index: Int) {
+    init(_ proxy: ScrollViewProxy, _ scrollToID: UUID, _ isLeft: Bool, _ index: Int,
+         leftFunc: (() -> Void)?, rightFunc: (() -> Void)?) {
         self.proxy = proxy
         self.scrollToID = scrollToID
         self.isLeft = isLeft
         self.index = index
+        self.leftFunc = leftFunc
+        self.rightFunc = rightFunc
         
         $geoMidY
-            .debounce(for: .seconds(1), scheduler: RunLoop.main)
+            .debounce(for: .seconds(0.1), scheduler: RunLoop.main)
             .sink { [weak self] _ in
-//                print("geoMidY has stabilized for 1 second, current value: \(self?.geoMidY ?? 0)")
+//                print("geoMidY has stabilized for 0.3 second, current value: \(self?.geoMidY ?? 0)")
                 if abs((self?.geoMidY ?? 0) - 240) < 35.5 {
-                    proxy.scrollTo(self?.scrollToID, anchor: .center)
+                    withAnimation {
+                        proxy.scrollTo(self?.scrollToID, anchor: .center)
+                    }
                     if let isLeft = self?.isLeft {
                         if isLeft {
+                            self?.leftFunc?()
                             print("Focus on left index:", index)
                         } else {
+                            self?.rightFunc?()
                             print("Focus on right index:", index)
                         }
                     }
