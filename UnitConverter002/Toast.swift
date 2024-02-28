@@ -20,20 +20,20 @@ class Toast: ObservableObject {
     
     func showPopup<Content: View>(_ content: Content) {
         self.content = AnyView(content)
-        
-        if isVisible {
-            isVisible = false
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
-                self.isVisible = true
-            }
-        } else {
-            isVisible = true
-        }
+        isVisible = true
+//        if isVisible {
+//            isVisible = false
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
+//                self.isVisible = true
+//            }
+//        } else {
+//            isVisible = true
+//        }
 
         showTime = Date()
         
         hideTimer?.invalidate()
-        hideTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+        hideTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
             DispatchQueue.main.async {
                 self.isVisible = false
             }
