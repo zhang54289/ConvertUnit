@@ -97,5 +97,21 @@ final class UnitMenuListViewModel: ObservableObject {
         self.leftList = []
         self.rightList = []
     }
+    
+    func getConvertNumber() -> Double {
+
+        Toast.shared.showPopup(Text("Debug: Convert ") + Text(getDoubleToString(leftNumber)).foregroundColor(.red) + Text(" \(leftList[leftIndex].name) TO \(rightList[rightIndex].name)"))
+        return 0.0
+    }
+    
+    func getDoubleToString(_ inputDouble: Double) -> String {
+        if inputDouble.truncatingRemainder(dividingBy: 1) == 0 {
+            return String(format: "%.0f", inputDouble)
+        } else if inputDouble * 10 == Double(Int(leftNumber * 10)) {
+            return String(format: "%.1f", inputDouble)
+        } else {
+            return String(inputDouble)
+        }
+    }
 }
 

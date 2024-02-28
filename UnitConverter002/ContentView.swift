@@ -203,7 +203,7 @@ struct UnitView: View {
                                 if unitViewModel.isLeft && viewModel.leftIndex == unitViewModel.index {
                                     Text(String(inputNumber))
                                 } else if !unitViewModel.isLeft && viewModel.rightIndex == unitViewModel.index {
-                                    Text(String(inputNumber))
+                                    Text(String(viewModel.getConvertNumber()))
                                 } else {
                                     Text(" ")
                                 }
