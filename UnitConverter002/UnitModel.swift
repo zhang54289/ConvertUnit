@@ -53,9 +53,7 @@ extension UnitMenu {
         lhs.type == rhs.type &&
         lhs.color == rhs.color
     }
-}
 
-extension UnitMenu {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
         hasher.combine(name)
@@ -82,7 +80,7 @@ final class UnitMenuListViewModel: ObservableObject {
                                                  Unit(name: "Mile", n: "mile", toMetic: 1609.344, isEmperial: true),
                                                  Unit(name: "Mile", n: "mile", toMetic: 1609.344, isEmperial: true),
                                                  Unit(name: "Mile", n: "mile", toMetic: 1609.344, isEmperial: true),
-                                                 Unit(name: "Centimeter", n: "cm", toMetic: 100, isEmperial: false),
+                                                 Unit(name: "Centimeter", n: "cm", toMetic: 0.01, isEmperial: false),
                                                  Unit(name: "Meter", n: "m", toMetic: 1.0, isEmperial: false)]),
                              UnitMenu(name: "weight", type: .weight, color: .yellow,
                                       unitList: [Unit(name: "pound", n: "lb", toMetic: 0.450, isEmperial: true),
@@ -99,19 +97,41 @@ final class UnitMenuListViewModel: ObservableObject {
     }
     
     func getConvertNumber() -> Double {
-
-        Toast.shared.showPopup(Text("Debug: Convert ") + Text(getDoubleToString(leftNumber)).foregroundColor(.red) + Text(" \(leftList[leftIndex].name) TO \(rightList[rightIndex].name)"))
-        return 0.0
+        guard leftList.count > 0, leftNumber != 0 else { return 0 }
+        let ret: Double = leftNumber * leftList[leftIndex].toMetic / rightList[rightIndex].toMetic
+        Toast.shared.showPopup(Text("Debug: Convert ")
+                               + Text(getDoubleToString(leftNumber)).foregroundColor(.red)
+                               + Text("\(leftList[leftIndex].name) TO ")
+                               + Text(getDoubleToString(ret)).foregroundColor(.green)
+                               + Text("\(rightList[rightIndex].name)"))
+        return ret
     }
     
-    func getDoubleToString(_ inputDouble: Double) -> String {
-        if inputDouble.truncatingRemainder(dividingBy: 1) == 0 {
-            return String(format: "%.0f", inputDouble)
-        } else if inputDouble * 10 == Double(Int(leftNumber * 10)) {
-            return String(format: "%.1f", inputDouble)
-        } else {
-            return String(inputDouble)
-        }
+    func getConvertString() -> String {
+        guard leftList.count > 0, leftNumber != 0 else { return "0" }
+        let ret: Double = leftNumber * leftList[leftIndex].toMetic / rightList[rightIndex].toMetic
+        Toast.shared.showPopup(Text("Debug: Convert ")
+                               + Text(getDoubleToString(leftNumber)).foregroundColor(.red)
+                               + Text("\(leftList[leftIndex].name) TO ")
+                               + Text(getDoubleToString(ret)).foregroundColor(.green)
+                               + Text("\(rightList[rightIndex].name)"))
+        return getDoubleToString(ret)
     }
-}
 
+    func getDoubleToString(_ inputDouble: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 0
+        formatter.usesGroupingSeparator = false
+
+        var valueString = formatter.string(from: NSNumber(value: round(inputDouble * 10000000000))) ?? ""
+        valueString = valueString.contains(".") ? String(valueString.dropLast(2)) : valueString
+        while valueString.count < 11 {
+            valueString = "0" + valueString
+        }
+        let endIndex = valueString.index(valueString.endIndex, offsetBy: -10)
+        let decimalString = valueString[..<endIndex] + "." + valueString[endIndex...]
+        return decimalString.trimmingCharacters(in: CharacterSet(charactersIn: "0")).replacingOccurrences(of: "\\.$", with: "", options: .regularExpression)
+    }
+
+}

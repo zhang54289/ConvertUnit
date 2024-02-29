@@ -60,13 +60,13 @@ struct DetailView: View {
     
     var body: some View {
         HStack {
-            UnitListView(viewModel: viewModel, isLeft: true, list: viewModel.leftList, inputNumber: $leftNumber)
-            UnitListView(viewModel: viewModel, isLeft: false, list: viewModel.rightList, inputNumber: $rightNumber)
+            UnitListView(viewModel: viewModel, isLeft: true, list: unitList.filter{ $0.isEmperial }, inputNumber: $leftNumber)
+            UnitListView(viewModel: viewModel, isLeft: false, list: unitList.filter{ !$0.isEmperial }, inputNumber: $rightNumber)
         }
         .frame(maxHeight: .infinity)
         .onAppear {
-            self.viewModel.leftList = unitList.filter{ $0.isEmperial }
-            self.viewModel.rightList = unitList.filter{ !$0.isEmperial }
+             viewModel.leftList = unitList.filter{ $0.isEmperial }
+             viewModel.rightList = unitList.filter{ !$0.isEmperial }
         }
         CalculatorView(inputNumber: $leftNumber)
     }
@@ -91,14 +91,17 @@ struct UnitListView: View {
                             .frame(height: 10)
                         ForEach(list.indices, id: \.self) { index in
                             VStack(spacing: 0) {
-                                UnitView(viewModel: viewModel,
-                                         unitViewModel: UnitViewModelModel(proxy,
+                                UnitView(unitViewModel: UnitViewModelModel(proxy,
                                                                            list[index].id,
                                                                            isLeft, index,
                                                                            leftFunc: { viewModel.leftIndex =  index } ,
                                                                            rightFunc: { viewModel.rightIndex =  index} ),
-                                         unit: list[index],
-                                         inputNumber: $inputNumber )
+                                         leftIndex: $viewModel.leftIndex,
+                                         rightIndex: $viewModel.rightIndex,
+                                         inputNumber: $inputNumber,
+                                         unit: list[index]) {
+                                    String(viewModel.getConvertString())
+                                }
                                     .frame(height: 60)
                                     .id(list[index].id)
                                     .onTapGesture {
@@ -119,12 +122,6 @@ struct UnitListView: View {
                     scrollToFirstUnit(proxy: proxy)
                 }
             }
-//            .simultaneousGesture(
-//                DragGesture()
-//                    .onEnded { value in
-//                        print(".onEnded gesture", value)
-//                    }
-//            )
 
             Spacer()
         }
@@ -182,12 +179,14 @@ final class UnitViewModelModel: ObservableObject {
 }
 
 struct UnitView: View {
-    @ObservedObject var viewModel: UnitMenuListViewModel
     @ObservedObject var unitViewModel: UnitViewModelModel
-
-    let unit: Unit
+    @Binding var leftIndex: Int
+    @Binding var rightIndex: Int
     @Binding var inputNumber: Double
     
+    let unit: Unit
+    let action: (() -> String)?
+
     var body: some View {
         GeometryReader { geometry in
             let geoMidY = geometry.frame(in: .global).midY
@@ -200,10 +199,10 @@ struct UnitView: View {
                         VStack {
                             HStack {
                                 Spacer()
-                                if unitViewModel.isLeft && viewModel.leftIndex == unitViewModel.index {
+                                if unitViewModel.isLeft && leftIndex == unitViewModel.index {
                                     Text(String(inputNumber))
-                                } else if !unitViewModel.isLeft && viewModel.rightIndex == unitViewModel.index {
-                                    Text(String(viewModel.getConvertNumber()))
+                                } else if !unitViewModel.isLeft && rightIndex == unitViewModel.index {
+                                    Text(action?() ?? " ")
                                 } else {
                                     Text(" ")
                                 }
@@ -222,25 +221,6 @@ struct UnitView: View {
     }
 }
 
-//            .simultaneousGesture(
-//                DragGesture()
-//                    .onEnded { value in
-//                        print(".onEnded gesture", value)
-//                    }
-//            )
-            
-            //                .simultaneousGesture(DragGesture()
-            //                    .onEnded { _ in
-            //                        print("DragGesture onEnded")
-            //                        if abs(geoMidY - 240) < 35 {
-            //                            withAnimation {
-            //                                print("proxy.scrollTo(unit.id, anchor: .center)")
-            //                                proxy.scrollTo(unit.id, anchor: .center)
-            //                            }
-            //                        }
-            //                    }
-            //                )
-
 struct UnitMenuView: View {
     let unitMenu: UnitMenu
     
@@ -253,4 +233,9 @@ struct UnitMenuView: View {
             Text(unitMenu.name.capitalized)
         }
     }
+}
+
+struct Const {
+    static let maxDigital: Int = 10
+    static let spaceHeight: CGFloat = 110.0
 }

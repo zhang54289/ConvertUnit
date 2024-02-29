@@ -73,7 +73,6 @@ struct CalculatorView: View {
             VStack {
                 Spacer()
 
-                // Text display
                 HStack {
                     Spacer()
                     Text(showValue)
@@ -83,7 +82,6 @@ struct CalculatorView: View {
                 }
                 .padding()
 
-                // Our buttons
                 ForEach(buttons, id: \.self) { row in
                     HStack(spacing: 12) {
                         ForEach(row, id: \.self) { item in
@@ -132,7 +130,7 @@ struct CalculatorView: View {
         case .none:
             break
         default:
-            if (value.count + value2.count) > Const.maxDigital {
+            if (value.count + value2.count) >= Const.maxDigital {
                 Toast.shared.showPopup(Text("Only support max ") + Text("\(Const.maxDigital)").foregroundColor(.red) + Text(" digital."))
                 return
             }
@@ -165,7 +163,3 @@ struct CalculatorView: View {
     }
 }
 
-struct Const {
-    static let maxDigital: Int = 12
-    static let spaceHeight: CGFloat = 110.0
-}
