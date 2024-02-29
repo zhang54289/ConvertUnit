@@ -11,8 +11,19 @@ import SwiftUI
 struct UnitConverter002App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .overlay(ToastView().zIndex(1)) // Add ToastView overlay
+            NavigationView {
+                VStack {
+                    UnitConverterMenuView()
+                }
+                .padding()
+            }
+            .overlay(ToastView().zIndex(1)) // Add ToastView overlay
         }
     }
+}
+
+struct Const {
+    static let maxDigital: Int = 10
+    static let spaceHeight: CGFloat = 110.0
+    static let toastExistTime: TimeInterval = 2
 }

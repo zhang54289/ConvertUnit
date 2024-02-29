@@ -23,7 +23,7 @@ enum CalcButton: String {
     case decimal = "."
     case back = "DEL"
     case none = ""
-
+    
     var buttonColor: Color {
         switch self {
         case .back:
@@ -38,41 +38,45 @@ enum CalcButton: String {
 
 struct CalculatorView: View {
     @Binding var inputNumber: Double
-
+    
     @State var value = "0" {
         didSet {
             inputNumber = Double(showValue) ?? 0
         }
     }
+    
     @State var value2 = "" {
         didSet {
             inputNumber = Double(showValue) ?? 0
         }
     }
+    
     @State var isDecimal = false {
         didSet {
             inputNumber = Double(showValue) ?? 0
         }
     }
+    
     var showValue: String {
         return isDecimal ? "\(value).\(value2)" : "\(value)"
     }
+    
     @State var runningNumber = 0
-
+    
     let buttons: [[CalcButton]] = [
         [.seven, .eight, .nine, .back],
         [.four, .five, .six, .clear],
         [.one, .two, .three, .none],
         [.zero, .decimal, .none],
     ]
-
+    
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
-
+            
             VStack {
                 Spacer()
-
+                
                 HStack {
                     Spacer()
                     Text(showValue)
@@ -81,7 +85,7 @@ struct CalculatorView: View {
                         .foregroundColor(.white)
                 }
                 .padding()
-
+                
                 ForEach(buttons, id: \.self) { row in
                     HStack(spacing: 12) {
                         ForEach(row, id: \.self) { item in
@@ -105,8 +109,8 @@ struct CalculatorView: View {
             }
         }
     }
-
-    func didTap(button: CalcButton) {
+    
+    private func didTap(button: CalcButton) {
         switch button {
         case .clear:
             value = "0"
@@ -150,15 +154,15 @@ struct CalculatorView: View {
             }
         }
     }
-
-    func buttonWidth(item: CalcButton) -> CGFloat {
+    
+    private func buttonWidth(item: CalcButton) -> CGFloat {
         if item == .zero {
             return ((UIScreen.main.bounds.width - (4*12)) / 4) * 2
         }
         return (UIScreen.main.bounds.width - (5*12)) / 4
     }
-
-    func buttonHeight() -> CGFloat {
+    
+    private func buttonHeight() -> CGFloat {
         return (UIScreen.main.bounds.width - (5*12)) / 4
     }
 }

@@ -15,7 +15,7 @@ struct UnitView: View {
     
     let unit: Unit
     let action: (() -> String)?
-
+    
     var body: some View {
         GeometryReader { geometry in
             let geoMidY = geometry.frame(in: .global).midY

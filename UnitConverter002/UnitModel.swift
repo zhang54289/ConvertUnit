@@ -53,7 +53,7 @@ extension UnitMenu {
         lhs.type == rhs.type &&
         lhs.color == rhs.color
     }
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
         hasher.combine(name)

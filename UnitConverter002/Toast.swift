@@ -26,7 +26,7 @@ class Toast: ObservableObject {
             self.showTime = Date()
             
             self.hideTimer?.invalidate()
-            self.hideTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+            self.hideTimer = Timer.scheduledTimer(withTimeInterval: Const.toastExistTime, repeats: false) { _ in
                 DispatchQueue.main.async {
                     self.isVisible = false
                 }

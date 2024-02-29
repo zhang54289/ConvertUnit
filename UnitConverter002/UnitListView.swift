@@ -9,10 +9,11 @@ import SwiftUI
 
 struct UnitListView: View {
     @ObservedObject var viewModel: UnitConverterMenuViewModel
+    @Binding var inputNumber: Double
 
     let isLeft: Bool
     let list: [Unit]
-    @Binding var inputNumber: Double
+    
     @State private var scrollProxy: ScrollViewProxy?
     
     var body: some View {
@@ -27,23 +28,23 @@ struct UnitListView: View {
                         ForEach(list.indices, id: \.self) { index in
                             VStack(spacing: 0) {
                                 UnitView(unitViewModel: UnitViewModel(proxy,
-                                                                           list[index].id,
-                                                                           isLeft, index,
-                                                                           leftFunc: { viewModel.leftIndex =  index } ,
-                                                                           rightFunc: { viewModel.rightIndex =  index} ),
+                                                                      list[index].id,
+                                                                      isLeft, index,
+                                                                      leftFunc: { viewModel.leftIndex =  index } ,
+                                                                      rightFunc: { viewModel.rightIndex =  index} ),
                                          leftIndex: $viewModel.leftIndex,
                                          rightIndex: $viewModel.rightIndex,
                                          inputNumber: $inputNumber,
                                          unit: list[index]) {
                                     String(viewModel.getConvertString())
                                 }
-                                    .frame(height: 60)
-                                    .id(list[index].id)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            proxy.scrollTo(list[index].id, anchor: .center)
-                                        }
-                                    }
+                                         .frame(height: 60)
+                                         .id(list[index].id)
+                                         .onTapGesture {
+                                             withAnimation {
+                                                 proxy.scrollTo(list[index].id, anchor: .center)
+                                             }
+                                         }
                                 Divider()
                                     .frame(height: 10)
                             }
@@ -57,7 +58,7 @@ struct UnitListView: View {
                     scrollToFirstUnit(proxy: proxy)
                 }
             }
-
+            
             Spacer()
         }
     }

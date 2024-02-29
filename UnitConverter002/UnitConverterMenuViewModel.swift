@@ -16,7 +16,7 @@ final class UnitConverterMenuViewModel: ObservableObject {
     @Published var rightIndex: Int
     @Published var leftList: [Unit]
     @Published var rightList: [Unit]
-
+    
     init() {
         self.unitMenuList = [UnitMenu(name: "length", type: .length, color: .red,
                                       unitList: [Unit(name: "Inch", n: "in", toMetic: 0.0245, isEmperial: true),
@@ -41,17 +41,6 @@ final class UnitConverterMenuViewModel: ObservableObject {
         self.rightList = []
     }
     
-    func getConvertNumber() -> Double {
-        guard leftList.count > 0, leftNumber != 0 else { return 0 }
-        let ret: Double = leftNumber * leftList[leftIndex].toMetic / rightList[rightIndex].toMetic
-        Toast.shared.showPopup(Text("Debug: Convert ")
-                               + Text(getDoubleToString(leftNumber)).foregroundColor(.red)
-                               + Text("\(leftList[leftIndex].name) TO ")
-                               + Text(getDoubleToString(ret)).foregroundColor(.green)
-                               + Text("\(rightList[rightIndex].name)"))
-        return ret
-    }
-    
     func getConvertString() -> String {
         guard leftList.count > 0, leftNumber != 0 else { return "0" }
         let ret: Double = leftNumber * leftList[leftIndex].toMetic / rightList[rightIndex].toMetic
@@ -62,13 +51,13 @@ final class UnitConverterMenuViewModel: ObservableObject {
                                + Text("\(rightList[rightIndex].name)"))
         return getDoubleToString(ret)
     }
-
-    func getDoubleToString(_ inputDouble: Double) -> String {
+    
+    private func getDoubleToString(_ inputDouble: Double) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = 0
         formatter.usesGroupingSeparator = false
-
+        
         var valueString = formatter.string(from: NSNumber(value: round(inputDouble * 10000000000))) ?? ""
         valueString = valueString.contains(".") ? String(valueString.dropLast(2)) : valueString
         while valueString.count < 11 {
@@ -76,7 +65,8 @@ final class UnitConverterMenuViewModel: ObservableObject {
         }
         let endIndex = valueString.index(valueString.endIndex, offsetBy: -10)
         let decimalString = valueString[..<endIndex] + "." + valueString[endIndex...]
-        return decimalString.trimmingCharacters(in: CharacterSet(charactersIn: "0")).replacingOccurrences(of: "\\.$", with: "", options: .regularExpression)
+        return decimalString.trimmingCharacters(in: CharacterSet(charactersIn: "0"))
+            .replacingOccurrences(of: "\\.$", with: "", options: .regularExpression)
     }
-
+    
 }

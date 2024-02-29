@@ -24,11 +24,21 @@ struct UnitConverterMenuView: View {
                                                       rightNumber: $viewModel.rightNumber)
                                         .navigationBarTitle(unitMenu.name.uppercased(), displayMode: .inline)
                     ) {
-                        UnitMenuView(unitMenu: unitMenu)
+                        unitMenuView(unitMenu)
                     }
                 }
             }
             .navigationTitle("Select Unit")
+        }
+    }
+    
+    private func unitMenuView(_ unitMenu: UnitMenu) -> some View {
+        VStack(spacing: 10) {
+            RoundedRectangle(cornerRadius: 6)
+                .inset(by: 1.5)
+                .fill(unitMenu.color)
+                .frame(width: 70, height: 70)
+            Text(unitMenu.name.capitalized)
         }
     }
 }
