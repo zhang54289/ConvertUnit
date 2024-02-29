@@ -17,7 +17,7 @@ struct UnitConverter002App: App {
                 }
                 .padding()
             }
-            .overlay(ToastView().zIndex(1)) // Add ToastView overlay
+            .overlay(ToastView().zIndex(1))
         }
     }
 }
