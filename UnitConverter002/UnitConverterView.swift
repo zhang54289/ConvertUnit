@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  UnitConverterView.swift
 //  UnitConverter002
 //
 //  Created by zhanghuan on 2/28/24.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct DetailView: View {
-    @ObservedObject var viewModel: UnitMenuListViewModel
+struct UnitConverterView: View {
+    @ObservedObject var viewModel: UnitConverterMenuViewModel
     let unitList: [Unit]
     @Binding var leftNumber: Double
     @Binding var rightNumber: Double
     
-    init(viewModel: UnitMenuListViewModel, unitList: [Unit], leftNumber: Binding<Double>, rightNumber: Binding<Double>) {
+    init(viewModel: UnitConverterMenuViewModel, unitList: [Unit], leftNumber: Binding<Double>, rightNumber: Binding<Double>) {
         self.viewModel = viewModel
         self.unitList = unitList
         self._leftNumber = leftNumber

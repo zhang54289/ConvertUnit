@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UnitListView: View {
-    @ObservedObject var viewModel: UnitMenuListViewModel
+    @ObservedObject var viewModel: UnitConverterMenuViewModel
 
     let isLeft: Bool
     let list: [Unit]
