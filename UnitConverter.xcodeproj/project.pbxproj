@@ -22,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CC3BD02B2B7A8AEE00035929 /* UnitConverter002.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitConverter002.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC3BD02B2B7A8AEE00035929 /* UnitConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC3BD02E2B7A8AEE00035929 /* UnitConverter002App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverter002App.swift; sourceTree = "<group>"; };
 		CC3BD0322B7A8AF100035929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC3BD0352B7A8AF100035929 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		CC3BD0222B7A8AEE00035929 = {
 			isa = PBXGroup;
 			children = (
-				CC3BD02D2B7A8AEE00035929 /* UnitConverter002 */,
+				CC3BD02D2B7A8AEE00035929 /* UnitConverter */,
 				CC3BD02C2B7A8AEE00035929 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,12 +59,12 @@
 		CC3BD02C2B7A8AEE00035929 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CC3BD02B2B7A8AEE00035929 /* UnitConverter002.app */,
+				CC3BD02B2B7A8AEE00035929 /* UnitConverter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CC3BD02D2B7A8AEE00035929 /* UnitConverter002 */ = {
+		CC3BD02D2B7A8AEE00035929 /* UnitConverter */ = {
 			isa = PBXGroup;
 			children = (
 				F22300AD2B9170D300C459B5 /* Calculator */,
@@ -75,7 +75,7 @@
 				CC3BD0322B7A8AF100035929 /* Assets.xcassets */,
 				CC3BD0342B7A8AF100035929 /* Preview Content */,
 			);
-			path = UnitConverter002;
+			path = UnitConverter;
 			sourceTree = "<group>";
 		};
 		CC3BD0342B7A8AF100035929 /* Preview Content */ = {
@@ -134,9 +134,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CC3BD02A2B7A8AEE00035929 /* UnitConverter002 */ = {
+		CC3BD02A2B7A8AEE00035929 /* UnitConverter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CC3BD0392B7A8AF100035929 /* Build configuration list for PBXNativeTarget "UnitConverter002" */;
+			buildConfigurationList = CC3BD0392B7A8AF100035929 /* Build configuration list for PBXNativeTarget "UnitConverter" */;
 			buildPhases = (
 				CC3BD0272B7A8AEE00035929 /* Sources */,
 				CC3BD0282B7A8AEE00035929 /* Frameworks */,
@@ -146,9 +146,9 @@
 			);
 			dependencies = (
 			);
-			name = UnitConverter002;
+			name = UnitConverter;
 			productName = UnitConverter002;
-			productReference = CC3BD02B2B7A8AEE00035929 /* UnitConverter002.app */;
+			productReference = CC3BD02B2B7A8AEE00035929 /* UnitConverter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -166,7 +166,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CC3BD0262B7A8AEE00035929 /* Build configuration list for PBXProject "UnitConverter002" */;
+			buildConfigurationList = CC3BD0262B7A8AEE00035929 /* Build configuration list for PBXProject "UnitConverter" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -179,7 +179,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CC3BD02A2B7A8AEE00035929 /* UnitConverter002 */,
+				CC3BD02A2B7A8AEE00035929 /* UnitConverter */,
 			);
 		};
 /* End PBXProject section */
@@ -341,17 +341,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"UnitConverter002/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"UnitConverter/Preview Content\"";
 				DEVELOPMENT_TEAM = FRM6B47L36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -371,17 +371,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"UnitConverter002/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"UnitConverter/Preview Content\"";
 				DEVELOPMENT_TEAM = FRM6B47L36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -399,7 +399,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CC3BD0262B7A8AEE00035929 /* Build configuration list for PBXProject "UnitConverter002" */ = {
+		CC3BD0262B7A8AEE00035929 /* Build configuration list for PBXProject "UnitConverter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC3BD0372B7A8AF100035929 /* Debug */,
@@ -408,7 +408,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CC3BD0392B7A8AF100035929 /* Build configuration list for PBXNativeTarget "UnitConverter002" */ = {
+		CC3BD0392B7A8AF100035929 /* Build configuration list for PBXNativeTarget "UnitConverter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC3BD03A2B7A8AF100035929 /* Debug */,
