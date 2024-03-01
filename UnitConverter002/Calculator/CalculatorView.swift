@@ -57,11 +57,11 @@ struct CalculatorView: View {
         }
     }
     
+    @State var runningNumber = 0
+    
     var showValue: String {
         return isDecimal ? "\(value).\(value2)" : "\(value)"
     }
-    
-    @State var runningNumber = 0
     
     let buttons: [[CalcButton]] = [
         [.seven, .eight, .nine, .back],

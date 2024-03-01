@@ -29,7 +29,7 @@ struct UnitView: View {
                             HStack {
                                 Spacer()
                                 if unitViewModel.isLeft && leftIndex == unitViewModel.index {
-                                    Text(String(inputNumber))
+                                    Text(String(inputNumber).trimDotZero())
                                 } else if !unitViewModel.isLeft && rightIndex == unitViewModel.index {
                                     Text(action?() ?? " ")
                                 } else {
@@ -50,3 +50,9 @@ struct UnitView: View {
     }
 }
 
+extension String {
+    func trimDotZero() -> String {
+        return self
+            .replacingOccurrences(of: "\\.0$", with: "", options: .regularExpression)
+    }
+}

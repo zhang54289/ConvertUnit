@@ -51,7 +51,6 @@
 		CC3BD0222B7A8AEE00035929 = {
 			isa = PBXGroup;
 			children = (
-				F28255D62B9025B80089BA2D /* UnitViewModel.swift */,
 				CC3BD02D2B7A8AEE00035929 /* UnitConverter002 */,
 				CC3BD02C2B7A8AEE00035929 /* Products */,
 			);
@@ -68,15 +67,11 @@
 		CC3BD02D2B7A8AEE00035929 /* UnitConverter002 */ = {
 			isa = PBXGroup;
 			children = (
-				CC3BD02E2B7A8AEE00035929 /* UnitConverter002App.swift */,
-				F2A6A4372B90298D0060E210 /* UnitConverterMenuViewModel.swift */,
-				F28255CC2B90246F0089BA2D /* UnitConverterMenuView.swift */,
-				F28255CE2B90249C0089BA2D /* UnitConverterView.swift */,
-				F28255D02B9024E90089BA2D /* UnitListView.swift */,
-				F28255D22B90251E0089BA2D /* UnitView.swift */,
-				CC3BD03C2B7A8B4400035929 /* UnitModel.swift */,
-				CC3BD03E2B7AB79900035929 /* CalculatorView.swift */,
-				F2CB08412B8B08B900F25494 /* Toast.swift */,
+				F22300AD2B9170D300C459B5 /* Calculator */,
+				F22300AC2B91709600C459B5 /* Model */,
+				F22300AB2B91706700C459B5 /* Common */,
+				F22300AA2B91705100C459B5 /* ViewModel */,
+				F22300A92B91702E00C459B5 /* View */,
 				CC3BD0322B7A8AF100035929 /* Assets.xcassets */,
 				CC3BD0342B7A8AF100035929 /* Preview Content */,
 			);
@@ -89,6 +84,51 @@
 				CC3BD0352B7A8AF100035929 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F22300A92B91702E00C459B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC3BD02E2B7A8AEE00035929 /* UnitConverter002App.swift */,
+				F28255CC2B90246F0089BA2D /* UnitConverterMenuView.swift */,
+				F28255CE2B90249C0089BA2D /* UnitConverterView.swift */,
+				F28255D02B9024E90089BA2D /* UnitListView.swift */,
+				F28255D22B90251E0089BA2D /* UnitView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F22300AA2B91705100C459B5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F2A6A4372B90298D0060E210 /* UnitConverterMenuViewModel.swift */,
+				F28255D62B9025B80089BA2D /* UnitViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F22300AB2B91706700C459B5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F2CB08412B8B08B900F25494 /* Toast.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F22300AC2B91709600C459B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC3BD03C2B7A8B4400035929 /* UnitModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F22300AD2B9170D300C459B5 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				CC3BD03E2B7AB79900035929 /* CalculatorView.swift */,
+			);
+			path = Calculator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

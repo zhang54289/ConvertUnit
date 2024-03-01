@@ -14,8 +14,11 @@ struct UnitConverter002App: App {
             NavigationView {
                 VStack {
                     UnitConverterMenuView()
+                    Spacer()
+                    ToggleView()
                 }
                 .padding()
+                .navigationTitle("Select Unit")
             }
             .overlay(ToastView().zIndex(1))
         }

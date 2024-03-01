@@ -10,6 +10,7 @@ import SwiftUI
 class Toast: ObservableObject {
     @Published var isVisible: Bool = false
     @Published var content: AnyView?
+    @ObservedObject var settings = GlobalSettings.shared
     
     static let shared = Toast()
     
@@ -18,7 +19,11 @@ class Toast: ObservableObject {
     
     private init() {}
     
-    func showPopup<Content: View>(_ content: Content) {
+    func showPopup<Content: View>(_ content: Content, isDebug: Bool = false) {
+        guard !isDebug || settings.isSwitchedOn else {
+            return
+        }
+        
         DispatchQueue.main.async {
             self.content = AnyView(content)
             self.isVisible = true
@@ -70,6 +75,40 @@ struct ToastView: View {
                     yOffset = UIScreen.main.bounds.height
                 }
                 hideTimer?.invalidate()
+            }
+        }
+    }
+}
+
+class GlobalSettings: ObservableObject {
+    static let shared = GlobalSettings()
+    
+    @Published var isSwitchedOn: Bool {
+        didSet {
+            UserDefaults.standard.set(isSwitchedOn, forKey: "isSwitchedOn")
+        }
+    }
+    
+    private init() {
+        self.isSwitchedOn = UserDefaults.standard.bool(forKey: "isSwitchedOn")
+    }
+}
+
+struct ToggleView: View {
+    @ObservedObject var settings = GlobalSettings.shared
+    
+    var body: some View {
+        Toggle(isOn: $settings.isSwitchedOn) {
+            Text("Debug toast:  ".uppercased())
+                .font(.system(size: 18))
+            + Text("\(settings.isSwitchedOn ? "On" : "Off")")
+                .font(.system(size: 18))
+                .foregroundColor(settings.isSwitchedOn ? .red: .green)
+        }
+        .padding()
+        .onChange(of: settings.isSwitchedOn) { value in
+            if !value {
+                Toast.shared.isVisible = false
             }
         }
     }

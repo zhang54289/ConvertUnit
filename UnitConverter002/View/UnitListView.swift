@@ -10,7 +10,7 @@ import SwiftUI
 struct UnitListView: View {
     @ObservedObject var viewModel: UnitConverterMenuViewModel
     @Binding var inputNumber: Double
-
+    
     let isLeft: Bool
     let list: [Unit]
     
@@ -52,10 +52,9 @@ struct UnitListView: View {
                     }
                     Spacer().frame(height: Const.spaceHeight)
                 }
-                .border(Color.green)
                 .onAppear {
                     self.scrollProxy = proxy
-                    scrollToFirstUnit(proxy: proxy)
+                    scrollToFirstUnit(proxy: proxy, isLeft: isLeft)
                 }
             }
             
@@ -63,11 +62,17 @@ struct UnitListView: View {
         }
     }
     
-    private func scrollToFirstUnit(proxy: ScrollViewProxy) {
-        if let firstUnitID = list.first?.id {
+    private func scrollToFirstUnit(proxy: ScrollViewProxy, isLeft: Bool) {
+        if isLeft, let firstUnitID = list.first?.id {
             withAnimation {
                 proxy.scrollTo(firstUnitID, anchor: .center)
             }
         }
+        if !isLeft, let firstUnitID = list.filter({ !$0.isEmperial }).first?.id {
+            withAnimation {
+                proxy.scrollTo(firstUnitID, anchor: .center)
+            }
+        }
+        
     }
 }

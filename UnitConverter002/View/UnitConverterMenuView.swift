@@ -16,7 +16,8 @@ struct UnitConverterMenuView: View {
             Spacer().frame(height: 20)
             
             LazyVGrid(columns: columns, spacing: 10) {
-                ForEach(viewModel.unitMenuList, id: \.self) { unitMenu in
+                let unitMenus = Array(Menu.menuList).sorted(by: { $0.key.rawValue < $1.key.rawValue })
+                ForEach(unitMenus, id: \.key) { key, unitMenu in
                     NavigationLink(destination:
                                     UnitConverterView(viewModel: viewModel,
                                                       unitList: unitMenu.unitList,
@@ -28,10 +29,10 @@ struct UnitConverterMenuView: View {
                     }
                 }
             }
-            .navigationTitle("Select Unit")
         }
     }
     
+    @ViewBuilder
     private func unitMenuView(_ unitMenu: UnitMenu) -> some View {
         VStack(spacing: 10) {
             RoundedRectangle(cornerRadius: 6)

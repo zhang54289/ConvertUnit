@@ -18,16 +18,19 @@ struct UnitConverterView: View {
             UnitListView(viewModel: viewModel,
                          inputNumber: $leftNumber,
                          isLeft: true,
-                         list: unitList.filter{ $0.isEmperial })
+                         list: unitList)
             UnitListView(viewModel: viewModel,
                          inputNumber: $rightNumber,
                          isLeft: false,
-                         list: unitList.filter{ !$0.isEmperial })
+                         list: unitList)
         }
         .frame(maxHeight: .infinity)
         .onAppear {
-            viewModel.leftList = unitList.filter{ $0.isEmperial }
-            viewModel.rightList = unitList.filter{ !$0.isEmperial }
+            viewModel.leftList = unitList
+            viewModel.rightList = unitList
+        }
+        .onDisappear {
+            leftNumber = 0
         }
         CalculatorView(inputNumber: $leftNumber)
     }
