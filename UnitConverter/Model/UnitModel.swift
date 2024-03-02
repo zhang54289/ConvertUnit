@@ -38,7 +38,7 @@ struct UnitMenu: Identifiable, Hashable {
     var color: Color
     var unitList: [Unit]
     
-    init(name: String, type: UnitType, color: Color, unitList: [Unit]) {
+    init(name: String, type: UnitType = .length, color: Color, unitList: [Unit] = []) {
         self.name = name
         self.type = type
         self.color = color

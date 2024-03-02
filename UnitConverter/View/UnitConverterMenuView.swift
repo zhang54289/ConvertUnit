@@ -30,6 +30,10 @@ struct UnitConverterMenuView: View {
                 }
             }
         }
+        Spacer()
+        NavigationLink(destination: AuthorView().navigationBarTitle("AUTHOR", displayMode: .inline) ) {
+            unitMenuView(UnitMenu(name: "Author", color: .green))
+        }
     }
     
     @ViewBuilder
