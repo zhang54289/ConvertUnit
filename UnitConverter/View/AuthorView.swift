@@ -23,7 +23,7 @@ struct AuthorView: View {
     @ViewBuilder
     private var picView: some View {
         let imageSize: CGFloat = 150
-        Image("Author")
+        Image("HuanZhang")
             .resizable()
             .scaledToFill()
             .frame(width: imageSize, height: imageSize)
