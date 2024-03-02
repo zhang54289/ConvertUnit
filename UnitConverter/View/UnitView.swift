@@ -1,6 +1,6 @@
 //
 //  UnitView.swift
-//  UnitConverter002
+//  UnitConverter
 //
 //  Created by Huan Zhang on 2/28/24.
 //
@@ -20,7 +20,7 @@ struct UnitView: View {
         GeometryReader { geometry in
             let geoMidY = geometry.frame(in: .global).midY
             ZStack {
-                Color.gray
+                Color(.lightGray)
                     .onChange(of: geoMidY) { newValue in
                         unitViewModel.geoMidY = newValue
                     }

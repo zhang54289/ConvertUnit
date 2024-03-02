@@ -1,6 +1,6 @@
 //
 //  CalculatorView.swift
-//  UnitConverter002
+//  UnitConverter
 //
 //  Created by Huan Zhang on 2/12/24.
 //
@@ -22,14 +22,17 @@ enum CalcButton: String {
     case clear = "AC"
     case decimal = "."
     case back = "DEL"
+    case swap = "⇔"
     case none = ""
     
     var buttonColor: Color {
         switch self {
-        case .back:
+        case .clear:
             return .orange
-        case .clear :
+        case .back:
             return Color(.lightGray)
+        case .swap:
+            return .brown
         default:
             return Color(UIColor(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 1))
         }
@@ -38,7 +41,9 @@ enum CalcButton: String {
 
 struct CalculatorView: View {
     @Binding var inputNumber: Double
-    
+    @Binding var leftIndex: Int
+    @Binding var rightIndex: Int
+
     @State var value = "0" {
         didSet {
             inputNumber = Double(showValue) ?? 0
@@ -64,9 +69,9 @@ struct CalculatorView: View {
     }
     
     let buttons: [[CalcButton]] = [
-        [.seven, .eight, .nine, .back],
-        [.four, .five, .six, .clear],
-        [.one, .two, .three, .none],
+        [.seven, .eight, .nine, .clear],
+        [.four, .five, .six, .back],
+        [.one, .two, .three, .swap],
         [.zero, .decimal, .none],
     ]
     
@@ -81,8 +86,9 @@ struct CalculatorView: View {
                     Spacer()
                     Text(showValue)
                         .bold()
-                        .font(.system(size: 30))
+                        .font(.system(size: 40))
                         .foregroundColor(.white)
+                        .padding(.trailing, 50)
                 }
                 .padding()
                 
@@ -131,6 +137,10 @@ struct CalculatorView: View {
                 value2 = ""
             }
             isDecimal.toggle()
+        case .swap:
+            let temp = leftIndex
+            leftIndex = rightIndex
+            rightIndex = temp
         case .none:
             break
         default:
@@ -155,15 +165,16 @@ struct CalculatorView: View {
         }
     }
     
+    let size: CGFloat = 30
     private func buttonWidth(item: CalcButton) -> CGFloat {
         if item == .zero {
-            return ((UIScreen.main.bounds.width - (4*12)) / 4) * 2
+            return ((UIScreen.main.bounds.width - (4*size)) / 4) * 2
         }
-        return (UIScreen.main.bounds.width - (5*12)) / 4
+        return (UIScreen.main.bounds.width - (5*size)) / 4
     }
     
     private func buttonHeight() -> CGFloat {
-        return (UIScreen.main.bounds.width - (5*12)) / 4
+        return (UIScreen.main.bounds.width - (5*size)) / 4
     }
 }
 

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC3BD02F2B7A8AEE00035929 /* UnitConverter002App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD02E2B7A8AEE00035929 /* UnitConverter002App.swift */; };
+		CC3BD02F2B7A8AEE00035929 /* UnitConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD02E2B7A8AEE00035929 /* UnitConverterApp.swift */; };
 		CC3BD0332B7A8AF100035929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC3BD0322B7A8AF100035929 /* Assets.xcassets */; };
 		CC3BD0362B7A8AF100035929 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC3BD0352B7A8AF100035929 /* Preview Assets.xcassets */; };
 		CC3BD03D2B7A8B4400035929 /* UnitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD03C2B7A8B4400035929 /* UnitModel.swift */; };
@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		CC3BD02B2B7A8AEE00035929 /* UnitConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC3BD02E2B7A8AEE00035929 /* UnitConverter002App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverter002App.swift; sourceTree = "<group>"; };
+		CC3BD02E2B7A8AEE00035929 /* UnitConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverterApp.swift; sourceTree = "<group>"; };
 		CC3BD0322B7A8AF100035929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC3BD0352B7A8AF100035929 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CC3BD03C2B7A8B4400035929 /* UnitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitModel.swift; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		F22300A92B91702E00C459B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CC3BD02E2B7A8AEE00035929 /* UnitConverter002App.swift */,
+				CC3BD02E2B7A8AEE00035929 /* UnitConverterApp.swift */,
 				F28255CC2B90246F0089BA2D /* UnitConverterMenuView.swift */,
 				F28255CE2B90249C0089BA2D /* UnitConverterView.swift */,
 				F28255D02B9024E90089BA2D /* UnitListView.swift */,
@@ -213,7 +213,7 @@
 				F28255CD2B90246F0089BA2D /* UnitConverterMenuView.swift in Sources */,
 				F28255D32B90251E0089BA2D /* UnitView.swift in Sources */,
 				CC3BD03D2B7A8B4400035929 /* UnitModel.swift in Sources */,
-				CC3BD02F2B7A8AEE00035929 /* UnitConverter002App.swift in Sources */,
+				CC3BD02F2B7A8AEE00035929 /* UnitConverterApp.swift in Sources */,
 				F28255D72B9025B80089BA2D /* UnitViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

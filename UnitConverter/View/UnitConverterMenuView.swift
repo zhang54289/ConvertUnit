@@ -1,6 +1,6 @@
 //
 //  UnitConverterMenuView.swift
-//  UnitConverter002
+//  UnitConverter
 //
 //  Created by Huan Zhang on 2/28/24.
 //

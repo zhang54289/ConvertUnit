@@ -1,6 +1,6 @@
 //
 //  UnitConverterView.swift
-//  UnitConverter002
+//  UnitConverter
 //
 //  Created by Huan Zhang on 2/28/24.
 //
@@ -32,6 +32,8 @@ struct UnitConverterView: View {
         .onDisappear {
             leftNumber = 0
         }
-        CalculatorView(inputNumber: $leftNumber)
+        CalculatorView(inputNumber: $leftNumber,
+                       leftIndex: $viewModel.leftIndex,
+                       rightIndex: $viewModel.rightIndex)
     }
 }
