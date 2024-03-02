@@ -14,8 +14,6 @@ struct UnitListView: View {
     let isLeft: Bool
     let list: [Unit]
     
-    @State private var scrollProxy: ScrollViewProxy?
-    
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
@@ -54,27 +52,12 @@ struct UnitListView: View {
                         Spacer().frame(height: geometry.size.height / 2 - 30)
                     }
                     .onAppear {
-                        scrollProxy = proxy
-                        scrollToFirstUnit(proxy: proxy, isLeft: isLeft)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                            viewModel.scrollToFirstUnit(proxy: proxy, isLeft: isLeft)
+                        }
                     }
                 }
             }
         }
-    }
-    
-    private func scrollToFirstUnit(proxy: ScrollViewProxy, isLeft: Bool) {
-        if isLeft, let firstUnitID = list.first?.id {
-            viewModel.leftIndex = list.firstIndex(where: { $0.isEmperial }) ?? 0
-            withAnimation {
-                proxy.scrollTo(firstUnitID, anchor: .center)
-            }
-        }
-        if !isLeft, let firstUnitID = list.filter({ !$0.isEmperial }).first?.id {
-            viewModel.rightIndex = list.firstIndex(where: { !$0.isEmperial }) ?? 0
-            withAnimation {
-                proxy.scrollTo(firstUnitID, anchor: .center)
-            }
-        }
-        
     }
 }

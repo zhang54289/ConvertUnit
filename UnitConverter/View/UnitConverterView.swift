@@ -32,8 +32,7 @@ struct UnitConverterView: View {
         .onDisappear {
             leftNumber = 0
         }
-        CalculatorView(inputNumber: $leftNumber,
-                       leftIndex: $viewModel.leftIndex,
-                       rightIndex: $viewModel.rightIndex)
+        CalculatorView(viewModel: viewModel,
+                       inputNumber: $leftNumber)
     }
 }

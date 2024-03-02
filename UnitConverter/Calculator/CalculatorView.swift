@@ -40,9 +40,8 @@ enum CalcButton: String {
 }
 
 struct CalculatorView: View {
+    @ObservedObject var viewModel: UnitConverterMenuViewModel
     @Binding var inputNumber: Double
-    @Binding var leftIndex: Int
-    @Binding var rightIndex: Int
 
     @State var value = "0" {
         didSet {
@@ -138,9 +137,7 @@ struct CalculatorView: View {
             }
             isDecimal.toggle()
         case .swap:
-            let temp = leftIndex
-            leftIndex = rightIndex
-            rightIndex = temp
+            viewModel.scrollSwap()
         case .none:
             break
         default:

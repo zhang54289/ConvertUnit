@@ -48,7 +48,9 @@ final class UnitConverterMenuViewModel: ObservableObject {
     @Published var leftList: [Unit]
     @Published var rightList: [Unit]
     var isMenuSelected = false
-    
+    var leftScrollProxy: ScrollViewProxy?
+    var rightScrollProxy: ScrollViewProxy?
+
     init() {
         self.leftNumber = 0
         self.rightNumber = 0
@@ -88,4 +90,35 @@ final class UnitConverterMenuViewModel: ObservableObject {
             .replacingOccurrences(of: "^\\.", with: "0.", options: .regularExpression)
     }
     
+    func scrollToFirstUnit(proxy: ScrollViewProxy, isLeft: Bool) {
+        if isLeft {
+            leftScrollProxy = proxy
+            let firstLeftUnitID = leftList.first?.id
+            leftIndex = leftList.firstIndex(where: { $0.isEmperial }) ?? 0
+            withAnimation {
+                proxy.scrollTo(firstLeftUnitID, anchor: .center)
+            }
+        } else {
+            rightScrollProxy = proxy
+            let firstRightUnitID = rightList.filter({ !$0.isEmperial }).first?.id
+            rightIndex = rightList.firstIndex(where: { !$0.isEmperial }) ?? 0
+            withAnimation {
+                proxy.scrollTo(firstRightUnitID, anchor: .center)
+            }
+        }
+    }
+    
+    func scrollSwap() {
+        let swapToLeftUnitID = leftList[rightIndex].id
+        let swapToRightUnitID = rightList[leftIndex].id
+        
+        let tempIndex = rightIndex
+        rightIndex = leftIndex
+        leftIndex = tempIndex
+        
+        withAnimation {
+            leftScrollProxy?.scrollTo(swapToLeftUnitID, anchor: .center)
+            rightScrollProxy?.scrollTo(swapToRightUnitID, anchor: .center)
+        }
+    }
 }
