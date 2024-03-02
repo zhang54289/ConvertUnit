@@ -22,7 +22,7 @@ enum CalcButton: String {
     case clear = "AC"
     case decimal = "."
     case back = "DEL"
-    case swap = "⇔"
+    case swap = "⇄"
     case none = ""
     
     var buttonColor: Color {
