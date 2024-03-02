@@ -16,21 +16,29 @@ struct UnitView: View {
     let unit: Unit
     let action: (() -> String)?
     
+    @State var isFocused = false
+    
     var body: some View {
         GeometryReader { geometry in
             let geoMidY = geometry.frame(in: .global).midY
             ZStack {
+                if ((unitViewModel.isLeft && (leftIndex == unitViewModel.index))
+                    || (!unitViewModel.isLeft && (rightIndex == unitViewModel.index))) {
+                    Color.yellow
+                        .cornerRadius(3)
+                }
                 Color(.lightGray)
                     .onChange(of: geoMidY) { newValue in
                         unitViewModel.geoMidY = newValue
                     }
+                    .cornerRadius(3)
                     .overlay(
                         VStack {
                             HStack {
                                 Spacer()
-                                if unitViewModel.isLeft && leftIndex == unitViewModel.index {
+                                if unitViewModel.isLeft && (leftIndex == unitViewModel.index) {
                                     Text(String(inputNumber).trimDotZero())
-                                } else if !unitViewModel.isLeft && rightIndex == unitViewModel.index {
+                                } else if !unitViewModel.isLeft && (rightIndex == unitViewModel.index) {
                                     Text(action?() ?? " ")
                                 } else {
                                     Text(" ")
@@ -44,8 +52,12 @@ struct UnitView: View {
                         }
                             .padding(5)
                     )
+                    .padding(5)
             }
-            .padding(5)
+            .if((unitViewModel.isLeft && (leftIndex == unitViewModel.index))
+                || (!unitViewModel.isLeft && (rightIndex == unitViewModel.index))){ view in
+                view.bold()
+            }
         }
     }
 }
