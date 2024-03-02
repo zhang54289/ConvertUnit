@@ -63,12 +63,14 @@ struct UnitListView: View {
     }
     
     private func scrollToFirstUnit(proxy: ScrollViewProxy, isLeft: Bool) {
+        viewModel.leftIndex = list.firstIndex(where: { $0.isEmperial }) ?? 0
         if isLeft, let firstUnitID = list.first?.id {
             withAnimation {
                 proxy.scrollTo(firstUnitID, anchor: .center)
             }
         }
         if !isLeft, let firstUnitID = list.filter({ !$0.isEmperial }).first?.id {
+            viewModel.rightIndex = list.firstIndex(where: { !$0.isEmperial }) ?? 0
             withAnimation {
                 proxy.scrollTo(firstUnitID, anchor: .center)
             }
