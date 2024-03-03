@@ -24,10 +24,10 @@ struct UnitView: View {
             ZStack {
                 if ((unitViewModel.isLeft && (leftIndex == unitViewModel.index))
                     || (!unitViewModel.isLeft && (rightIndex == unitViewModel.index))) {
-                    Color.yellow
+                    ColorSettings.shared.focusColor
                         .cornerRadius(3)
                 }
-                Color(.lightGray)
+                ColorSettings.shared.unitPadColor
                     .onChange(of: geoMidY) { newValue in
                         unitViewModel.geoMidY = newValue
                     }

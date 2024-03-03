@@ -15,9 +15,11 @@ struct SettingView: View {
             closeButton
                 .padding(.bottom, 20)
             ToggleView()
+            ColorSettingView()
             Spacer()
         }
         .padding(.top, 60)
+        .padding(.horizontal, 40)
         .font(.system(size: 20))
     }
     
@@ -29,23 +31,9 @@ struct SettingView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 24, height: 24)
-                .padding(.trailing, 40)
                 .onTapGesture {
                     dismiss()
                 }
         }
-    }
-}
-
-struct ColorPickerView: View {
-    @State private var bgColor = Color.red
-    let title: String
-
-    var body: some View {
-        VStack {
-            ColorPicker(title, selection: $bgColor)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(bgColor)
     }
 }
