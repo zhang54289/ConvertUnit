@@ -13,8 +13,9 @@ extension String {
         if let preferredLanguage = Locale.preferredLanguages.first {
             let components = preferredLanguage.components(separatedBy: "-")
             let primaryLanguage = components.first ?? preferredLanguage
-            print("Preferred Language: \(primaryLanguage)")
-            print("Preferred Language: \(preferredLanguage)")
+            if primaryLanguage == "en" {
+                return self
+            }
         }
         
         return NSLocalizedString(self, comment: "")
