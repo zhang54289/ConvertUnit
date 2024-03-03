@@ -24,6 +24,7 @@ struct ContentView: View {
             }
             .padding()
             .navigationTitle("Select Unit")
+            .background(ColorSettings.shared.menuBackgroudColor)
         }
         .overlay(ToastView().zIndex(1))
     }

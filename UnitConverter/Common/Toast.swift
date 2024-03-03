@@ -55,7 +55,7 @@ struct ToastView: View {
             Spacer()
             toast.content
                 .padding()
-                .background(Color.white)
+                .background(ColorSettings.shared.menuBackgroudColor)
                 .foregroundColor(.black)
                 .cornerRadius(10)
                 .padding(.horizontal, 20)

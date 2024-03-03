@@ -31,9 +31,7 @@ struct UnitConverterMenuView: View {
             }
         }
         Spacer()
-        NavigationLink(destination:
-//                        ColorPickerView(title: "test") ) {
-                        AuthorView().navigationBarTitle("AUTHOR", displayMode: .inline) ) {
+        NavigationLink(destination: AuthorView().navigationBarTitle("AUTHOR", displayMode: .inline)) {
             unitMenuView(UnitMenu(name: "Author", color: .green))
         }
     }

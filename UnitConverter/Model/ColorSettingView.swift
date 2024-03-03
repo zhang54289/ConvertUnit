@@ -52,9 +52,16 @@ class ColorSettings: ObservableObject {
         }
     }
     
+    @Published var menuBackgroudColor: Color {
+        didSet {
+            UserDefaults.standard.setColor(color: UIColor(menuBackgroudColor), forKey: "MenuBackgroundColor")
+        }
+    }
+
     init() {
         self.focusColor  = Color(UserDefaults.standard.colorForKey(key: "FocusColor") ?? .yellow)
         self.unitPadColor  = Color(UserDefaults.standard.colorForKey(key: "UnitPadColor") ?? UIColor(Color(.lightGray)))
+        self.menuBackgroudColor  = Color(UserDefaults.standard.colorForKey(key: "MenuBackgroundColor") ?? .white)
     }
 }
 
@@ -64,5 +71,6 @@ struct ColorSettingView: View {
     var body: some View {
         ColorPicker("Focus color", selection: $settings.focusColor)
         ColorPicker("Unit pad color", selection: $settings.unitPadColor)
+        ColorPicker("Menu background color", selection: $settings.menuBackgroudColor)
     }
 }

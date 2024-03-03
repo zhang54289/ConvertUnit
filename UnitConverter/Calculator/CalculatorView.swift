@@ -136,39 +136,6 @@ struct CalculatorView: View {
             }
     }
     
-//    if item == .swap {
-//        Text(item.rawValue)
-//            .font(.system(size: 32))
-//            .frame(
-//                width: self.buttonWidth(item: item),
-//                height: self.buttonHeight()
-//            )
-//            .background(item.buttonColor)
-//            .foregroundColor(.white)
-//            .cornerRadius(self.buttonWidth(item: item)/2)
-//
-////                                        Image(systemName: "arrow.triangle.2.circlepath")
-////                                            .frame(
-////                                                width: self.buttonWidth(item: item),
-////                                                height: self.buttonHeight()
-////                                            )
-////                                            .background(item.buttonColor)
-////                                            .foregroundColor(.white)
-////                                            .cornerRadius(self.buttonWidth(item: item)/2)
-//    } else {
-//        Text(item.rawValue)
-//            .font(.system(size: 32))
-//            .frame(
-//                width: self.buttonWidth(item: item),
-//                height: self.buttonHeight()
-//            )
-//            .background(item.buttonColor)
-//            .foregroundColor(.white)
-//            .cornerRadius(self.buttonWidth(item: item)/2)
-//    }
-//}
-
-                                   
     private func didTap(button: CalcButton) {
         switch button {
         case .clear:
