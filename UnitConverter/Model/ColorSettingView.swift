@@ -70,12 +70,19 @@ class ColorSettings: ObservableObject {
         }
     }
 
+    @Published var numberKeyColor: Color {
+        didSet {
+            UserDefaults.standard.setColor(color: UIColor(numberKeyColor), forKey: "NumberKeyColor")
+        }
+    }
+
     init() {
         self.focusColor  = Color(UserDefaults.standard.colorForKey(key: "FocusColor") ?? .yellow)
         self.unitPadColor  = Color(UserDefaults.standard.colorForKey(key: "UnitPadColor") ?? UIColor(Color(.lightGray)))
         self.menuBackgroudColor  = Color(UserDefaults.standard.colorForKey(key: "MenuBackgroundColor") ?? .white)
         self.toastBackgroudColor  = Color(UserDefaults.standard.colorForKey(key: "ToastBackgroundColor") ?? .white)
         self.keypadBackgroudColor  = Color(UserDefaults.standard.colorForKey(key: "KeypadBackgroundColor") ?? .black)
+        self.numberKeyColor  = Color(UserDefaults.standard.colorForKey(key: "NumberKeyColor") ?? UIColor(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 1))
     }
 }
 
@@ -88,5 +95,6 @@ struct ColorSettingView: View {
         ColorPicker("Menu background color", selection: $settings.menuBackgroudColor)
         ColorPicker("Toast background color", selection: $settings.toastBackgroudColor)
         ColorPicker("Keypad background color", selection: $settings.keypadBackgroudColor)
+        ColorPicker("Number key color", selection: $settings.numberKeyColor)
     }
 }

@@ -37,7 +37,7 @@ enum CalcButton: String {
         case .setting:
             return .brown
         default:
-            return Color(UIColor(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 1))
+            return ColorSettings.shared.numberKeyColor
         }
     }
 }
