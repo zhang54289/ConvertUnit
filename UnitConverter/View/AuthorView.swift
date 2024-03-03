@@ -11,8 +11,17 @@ struct AuthorView: View {
     var body: some View {
         VStack(spacing: 20) {
             picView
-            linkedInView
-            gitHubView
+            if let preferredLanguage = Locale.preferredLanguages.first {
+                let components = preferredLanguage.components(separatedBy: "-")
+                let primaryLanguage = components.first ?? preferredLanguage
+                if primaryLanguage == "en" {
+                    linkedInView
+                    gitHubView
+                } else {
+                    Text("Huan Zhang".local)
+                        .bold()
+                }
+            }
             Spacer()
         }
         .padding(.top, 60)
