@@ -9,6 +9,8 @@ import SwiftUI
 
 struct UnitView: View {
     @ObservedObject var unitViewModel: UnitViewModel
+    @ObservedObject var colorSettings = ColorSettings.shared
+
     @Binding var leftIndex: Int
     @Binding var rightIndex: Int
     @Binding var inputNumber: Double
@@ -24,10 +26,10 @@ struct UnitView: View {
             ZStack {
                 if ((unitViewModel.isLeft && (leftIndex == unitViewModel.index))
                     || (!unitViewModel.isLeft && (rightIndex == unitViewModel.index))) {
-                    ColorSettings.shared.focusColor
+                    colorSettings.focusColor
                         .cornerRadius(3)
                 }
-                ColorSettings.shared.unitPadColor
+                colorSettings.unitPadColor
                     .onChange(of: geoMidY) { newValue in
                         unitViewModel.geoMidY = newValue
                     }

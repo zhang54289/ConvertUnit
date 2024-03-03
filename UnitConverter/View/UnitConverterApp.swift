@@ -17,6 +17,8 @@ struct UnitConverterApp: App {
 }
 
 struct ContentView: View {
+    @ObservedObject var colorSettings = ColorSettings.shared
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -24,7 +26,7 @@ struct ContentView: View {
             }
             .padding()
             .navigationTitle("Select Unit")
-            .background(ColorSettings.shared.menuBackgroudColor)
+            .background(colorSettings.menuBackgroudColor)
         }
         .overlay(ToastView().zIndex(1))
     }

@@ -44,6 +44,8 @@ enum CalcButton: String {
 
 struct CalculatorView: View {
     @ObservedObject var viewModel: UnitConverterMenuViewModel
+    @ObservedObject var colorSettings = ColorSettings.shared
+
     @Binding var inputNumber: Double
 
     @State var value = "0" {
@@ -79,7 +81,7 @@ struct CalculatorView: View {
     
     var body: some View {
         ZStack {
-            ColorSettings.shared.keypadBackgroudColor.edgesIgnoringSafeArea(.all)
+            colorSettings.keypadBackgroudColor.edgesIgnoringSafeArea(.all)
             
             VStack {
                 Spacer()
