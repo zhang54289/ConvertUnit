@@ -8,6 +8,19 @@
 import SwiftUI
 import Foundation
 
+extension String {
+    var local: String {
+        if let preferredLanguage = Locale.preferredLanguages.first {
+            let components = preferredLanguage.components(separatedBy: "-")
+            let primaryLanguage = components.first ?? preferredLanguage
+            print("Preferred Language: \(primaryLanguage)")
+            print("Preferred Language: \(preferredLanguage)")
+        }
+        
+        return NSLocalizedString(self, comment: "")
+    }
+}
+
 extension UserDefaults {
   func colorForKey(key: String) -> UIColor? {
     var colorReturnded: UIColor?
@@ -90,11 +103,11 @@ struct ColorSettingView: View {
     @ObservedObject var settings = ColorSettings.shared
 
     var body: some View {
-        ColorPicker("Focus color", selection: $settings.focusColor)
-        ColorPicker("Unit pad color", selection: $settings.unitPadColor)
-        ColorPicker("Menu background color", selection: $settings.menuBackgroudColor)
-        ColorPicker("Toast background color", selection: $settings.toastBackgroudColor)
-        ColorPicker("Keypad background color", selection: $settings.keypadBackgroudColor)
-        ColorPicker("Number key color", selection: $settings.numberKeyColor)
+        ColorPicker("Focus color".local, selection: $settings.focusColor)
+        ColorPicker("Unit pad color".local, selection: $settings.unitPadColor)
+        ColorPicker("Menu background color".local, selection: $settings.menuBackgroudColor)
+        ColorPicker("Toast background color".local, selection: $settings.toastBackgroudColor)
+        ColorPicker("Keypad background color".local, selection: $settings.keypadBackgroudColor)
+        ColorPicker("Number key color".local, selection: $settings.numberKeyColor)
     }
 }

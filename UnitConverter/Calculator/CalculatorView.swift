@@ -167,7 +167,7 @@ struct CalculatorView: View {
             break
         default:
             if (value.count + value2.count) >= Const.maxDigital {
-                Toast.shared.showPopup(Text("Only support max ") + Text("\(Const.maxDigital)").foregroundColor(.red) + Text(" digital."))
+                Toast.shared.showPopup(Text("Only support max ".local) + Text("\(Const.maxDigital)").foregroundColor(.red) + Text(" digital.".local))
                 return
             }
             let number = button.rawValue

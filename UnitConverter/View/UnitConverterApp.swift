@@ -25,7 +25,7 @@ struct ContentView: View {
                 UnitConverterMenuView()
             }
             .padding()
-            .navigationTitle("Select Unit")
+            .navigationTitle("Select Unit".local)
             .background(colorSettings.menuBackgroudColor)
         }
         .overlay(ToastView().zIndex(1))

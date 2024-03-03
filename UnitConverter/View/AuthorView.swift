@@ -43,7 +43,7 @@ struct AuthorView: View {
               UIApplication.shared.open(linkedinUrl)
             }
         } label: {
-            Text("Huan Zhang's LinkedIn")
+            Text("Huan Zhang's LinkedIn".local)
         }
     }
     

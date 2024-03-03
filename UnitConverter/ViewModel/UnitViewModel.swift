@@ -41,10 +41,10 @@ final class UnitViewModel: ObservableObject {
                     if let isLeft = self?.isLeft {
                         if isLeft {
                             self?.leftFunc?()
-                            print("Focus on left index:", index)
+                            print("Focus on left index:".local, index)
                         } else {
                             self?.rightFunc?()
-                            print("Focus on right index:", index)
+                            print("Focus on right index:".local, index)
                         }
                     }
                 }

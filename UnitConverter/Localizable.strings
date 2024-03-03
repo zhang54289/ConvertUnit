@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  UnitConverter
+
+  Created by zhanghuan on 3/2/24.
+  
+*/
+
+"Only support max " = "最大只支持 ";
+" digital." = " 位。";
+"Length" = "长度";
+"length" = "长度";
+
+"Author" = "作者";
+"AUTHOR" = "作者";
+"Focus color" = "专注色";
+"Unit pad color" = "单位面板色";
+"Menu background color" = "菜单背景色";
+"Toast background color" = "弹窗背景色";
+"Keypad background color" = "键盘背景色";
+"Number key color" = "数字键背景色";
+"Debug toast:  " = "调试：";
+"On" = "开";
+"Off" = "关";
+"length" = "长度";
+"Inch" = "英寸";
+"Feet" = "英尺";
+"Yard" = "码";
+"Rod" = "杆";
+"Mile" = "英里";
+"Nautical Mile" = "海里";
+"Centimeter" = "厘米";
+"Meter" = "米";
+"Kilometer" = "公里";
+"weight" = "重量";
+"Carat" = "克拉";
+"Ounce" = "盎司";
+"pound" = "磅";
+"gram" = "克";
+"kilogram" = "公斤";
+"area" = "面积";
+"square Inch" = "平方英寸";
+"square Feet" = "平凡英尺";
+"acre" = "英亩";
+"Hectare" = "公顷";
+"squareMeter" = "平方米";
+"Debug: Convert " = "调试：转换 ";
+"Focus on left index:" = "选中左边第";
+"Focus on right index:" = "选中右边第";
+"Select Unit" = "请选择单位类型";
+"Huan Zhang's LinkedIn" = "张洹的领英";
+" TO " = " 到 ";

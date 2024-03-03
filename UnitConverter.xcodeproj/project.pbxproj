@@ -14,6 +14,7 @@
 		CC3BD03F2B7AB79900035929 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD03E2B7AB79900035929 /* CalculatorView.swift */; };
 		F261CA952B940DAD00B499DA /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F261CA942B940DAD00B499DA /* SettingView.swift */; };
 		F261CA972B94192F00B499DA /* ColorSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F261CA962B94192F00B499DA /* ColorSettingView.swift */; };
+		F261CA9C2B94456900B499DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F261CA9B2B94456900B499DA /* Localizable.strings */; };
 		F2715B182B92CDF300AC952B /* AuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2715B172B92CDF300AC952B /* AuthorView.swift */; };
 		F28255CD2B90246F0089BA2D /* UnitConverterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28255CC2B90246F0089BA2D /* UnitConverterMenuView.swift */; };
 		F28255CF2B90249C0089BA2D /* UnitConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28255CE2B90249C0089BA2D /* UnitConverterView.swift */; };
@@ -33,6 +34,7 @@
 		CC3BD03E2B7AB79900035929 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		F261CA942B940DAD00B499DA /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		F261CA962B94192F00B499DA /* ColorSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSettingView.swift; sourceTree = "<group>"; };
+		F261CA9B2B94456900B499DA /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		F2715B172B92CDF300AC952B /* AuthorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorView.swift; sourceTree = "<group>"; };
 		F28255CC2B90246F0089BA2D /* UnitConverterMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverterMenuView.swift; sourceTree = "<group>"; };
 		F28255CE2B90249C0089BA2D /* UnitConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverterView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		CC3BD02D2B7A8AEE00035929 /* UnitConverter */ = {
 			isa = PBXGroup;
 			children = (
+				F261CA9A2B9444F500B499DA /* zh-Hans.lproj */,
 				F22300AD2B9170D300C459B5 /* Calculator */,
 				F22300AC2B91709600C459B5 /* Model */,
 				F22300AB2B91706700C459B5 /* Common */,
@@ -140,6 +143,14 @@
 			path = Calculator;
 			sourceTree = "<group>";
 		};
+		F261CA9A2B9444F500B499DA /* zh-Hans.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				F261CA9B2B94456900B499DA /* Localizable.strings */,
+			);
+			name = "zh-Hans.lproj";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -199,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC3BD0362B7A8AF100035929 /* Preview Assets.xcassets in Resources */,
+				F261CA9C2B94456900B499DA /* Localizable.strings in Resources */,
 				CC3BD0332B7A8AF100035929 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
