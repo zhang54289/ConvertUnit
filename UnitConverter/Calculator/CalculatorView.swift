@@ -79,7 +79,7 @@ struct CalculatorView: View {
     
     var body: some View {
         ZStack {
-            Color.black.edgesIgnoringSafeArea(.all)
+            ColorSettings.shared.keypadBackgroudColor.edgesIgnoringSafeArea(.all)
             
             VStack {
                 Spacer()
