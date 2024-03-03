@@ -22,11 +22,17 @@ struct AuthorView: View {
     @ViewBuilder
     private var picView: some View {
         let imageSize: CGFloat = 150
-        Image("HuanZhang")
-            .resizable()
-            .scaledToFill()
-            .frame(width: imageSize, height: imageSize)
-            .clipShape(Capsule())
+        ZStack {
+            Image("HuanZhang")
+                .resizable()
+                .scaledToFill()
+                .frame(width: imageSize, height: imageSize)
+                .clipShape(Capsule())
+                .padding(50)
+            Capsule()
+                .strokeBorder(LinearGradient(gradient: Gradient(colors: [.blue, .red]), startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 10)
+                .frame(width: imageSize + 20, height: imageSize + 20)
+        }
     }
     
     @ViewBuilder

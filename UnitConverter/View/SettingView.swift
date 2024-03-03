@@ -36,3 +36,16 @@ struct SettingView: View {
         }
     }
 }
+
+struct ColorPickerView: View {
+    @State private var bgColor = Color.red
+    let title: String
+
+    var body: some View {
+        VStack {
+            ColorPicker(title, selection: $bgColor)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(bgColor)
+    }
+}
