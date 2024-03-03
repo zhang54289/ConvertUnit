@@ -50,6 +50,7 @@ final class UnitConverterMenuViewModel: ObservableObject {
     var isMenuSelected = false
     var leftScrollProxy: ScrollViewProxy?
     var rightScrollProxy: ScrollViewProxy?
+    @Published var isShowSetting = false
 
     init() {
         self.leftNumber = 0

@@ -9,12 +9,11 @@ import SwiftUI
 
 struct AuthorView: View {
     var body: some View {
-        VStack(spacing: 60) {
+        VStack(spacing: 20) {
             picView
             linkedInView
             gitHubView
             Spacer()
-            ToggleView()
         }
         .padding(.top, 60)
         .font(.system(size: 20))

@@ -105,7 +105,7 @@ struct ToggleView: View {
                 .font(.system(size: 18))
                 .foregroundColor(settings.isSwitchedOn ? .red: .green)
         }
-        .padding()
+        .padding(.horizontal, 40)
         .onChange(of: settings.isSwitchedOn) { value in
             if !value {
                 Toast.shared.isVisible = false

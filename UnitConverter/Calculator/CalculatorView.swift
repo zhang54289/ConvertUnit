@@ -19,10 +19,11 @@ enum CalcButton: String {
     case eight = "8"
     case nine = "9"
     case zero = "0"
-    case clear = "AC"
     case decimal = "."
+    case clear = "AC"
     case back = "DEL"
-    case swap = "⇄"
+    case swap = "🔄"
+    case setting = "⚙️"
     case none = ""
     
     var buttonColor: Color {
@@ -32,6 +33,8 @@ enum CalcButton: String {
         case .back:
             return Color(.lightGray)
         case .swap:
+            return .brown
+        case .setting:
             return .brown
         default:
             return Color(UIColor(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 1))
@@ -71,7 +74,7 @@ struct CalculatorView: View {
         [.seven, .eight, .nine, .clear],
         [.four, .five, .six, .back],
         [.one, .two, .three, .swap],
-        [.zero, .decimal, .none],
+        [.zero, .decimal, .setting],
     ]
     
     var body: some View {
@@ -97,15 +100,7 @@ struct CalculatorView: View {
                             Button(action: {
                                 self.didTap(button: item)
                             }, label: {
-                                Text(item.rawValue)
-                                    .font(.system(size: 32))
-                                    .frame(
-                                        width: self.buttonWidth(item: item),
-                                        height: self.buttonHeight()
-                                    )
-                                    .background(item.buttonColor)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(self.buttonWidth(item: item)/2)
+                                buttonContent(item: item)
                             })
                         }
                     }
@@ -113,8 +108,67 @@ struct CalculatorView: View {
                 }
             }
         }
+        .fullScreenCover(isPresented: $viewModel.isShowSetting) {
+            SettingView()
+        }
     }
     
+    @ViewBuilder
+    private func buttonContent(item: CalcButton) -> some View {
+            if item == .swap {
+                let imagePadding: CGFloat = 16
+                Image(systemName: "arrow.triangle.2.circlepath")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: buttonWidth(item: item) - imagePadding * 2,
+                           height: buttonHeight() - imagePadding * 2)
+                    .padding(imagePadding)
+                    .background(item.buttonColor)
+                    .foregroundColor(.white)
+                    .cornerRadius(buttonWidth(item: item) / 2)
+            } else {
+                Text(item.rawValue)
+                    .font(.system(size: [.clear, .back].contains(item) ? 26 : 32))
+                    .frame(width: buttonWidth(item: item), height: buttonHeight())
+                    .background(item.buttonColor)
+                    .foregroundColor(.white)
+                    .cornerRadius(buttonWidth(item: item) / 2)
+            }
+    }
+    
+//    if item == .swap {
+//        Text(item.rawValue)
+//            .font(.system(size: 32))
+//            .frame(
+//                width: self.buttonWidth(item: item),
+//                height: self.buttonHeight()
+//            )
+//            .background(item.buttonColor)
+//            .foregroundColor(.white)
+//            .cornerRadius(self.buttonWidth(item: item)/2)
+//
+////                                        Image(systemName: "arrow.triangle.2.circlepath")
+////                                            .frame(
+////                                                width: self.buttonWidth(item: item),
+////                                                height: self.buttonHeight()
+////                                            )
+////                                            .background(item.buttonColor)
+////                                            .foregroundColor(.white)
+////                                            .cornerRadius(self.buttonWidth(item: item)/2)
+//    } else {
+//        Text(item.rawValue)
+//            .font(.system(size: 32))
+//            .frame(
+//                width: self.buttonWidth(item: item),
+//                height: self.buttonHeight()
+//            )
+//            .background(item.buttonColor)
+//            .foregroundColor(.white)
+//            .cornerRadius(self.buttonWidth(item: item)/2)
+//    }
+//}
+
+                                   
     private func didTap(button: CalcButton) {
         switch button {
         case .clear:
@@ -138,6 +192,8 @@ struct CalculatorView: View {
             isDecimal.toggle()
         case .swap:
             viewModel.scrollSwap()
+        case .setting:
+            viewModel.isShowSetting = true
         case .none:
             break
         default:
