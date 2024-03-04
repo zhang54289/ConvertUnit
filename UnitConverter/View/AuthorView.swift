@@ -16,7 +16,7 @@ struct AuthorView: View {
                 let primaryLanguage = components.first ?? preferredLanguage
                 if primaryLanguage == "en" {
                     linkedInView
-                    gitHubView
+//                    gitHubView
                 } else {
                     Text("Huan Zhang".local)
                         .bold()
