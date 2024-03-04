@@ -59,7 +59,7 @@ struct AuthorView: View {
         Link(destination: URL(string: "mailto:zhang54288@gmail.com")!) {
             HStack {
                 Image(systemName: "envelope.fill")
-                Text("Contact author Huan Zhang")
+                Text("Contact author Huan Zhang".local)
             }
         }
     }
