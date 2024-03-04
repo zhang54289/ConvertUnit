@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UnitListView: View {
     @ObservedObject var viewModel: UnitConverterMenuViewModel
+    @ObservedObject var colorSettings = ColorSettings.shared
     @Binding var inputNumber: Double
     
     let isLeft: Bool
@@ -51,6 +52,7 @@ struct UnitListView: View {
                         }
                         Spacer().frame(height: geometry.size.height / 2 - 30)
                     }
+                    .background(colorSettings.listBackgroundColor)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                             viewModel.scrollToFirstUnit(proxy: proxy, isLeft: isLeft)

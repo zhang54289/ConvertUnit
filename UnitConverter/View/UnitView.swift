@@ -24,12 +24,13 @@ struct UnitView: View {
         GeometryReader { geometry in
             let geoMidY = geometry.frame(in: .global).midY
             ZStack {
-                if ((unitViewModel.isLeft && (leftIndex == unitViewModel.index))
-                    || (!unitViewModel.isLeft && (rightIndex == unitViewModel.index))) {
+                let isFocused = ((unitViewModel.isLeft && (leftIndex == unitViewModel.index))
+                                || (!unitViewModel.isLeft && (rightIndex == unitViewModel.index)))
+                if isFocused {
                     colorSettings.focusColor
                         .cornerRadius(3)
                 }
-                colorSettings.unitPadColor
+                (isFocused ? colorSettings.focusBackgroundColor : colorSettings.unitPadColor)
                     .onChange(of: geoMidY) { newValue in
                         unitViewModel.geoMidY = newValue
                     }

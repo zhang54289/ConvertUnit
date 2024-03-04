@@ -15,12 +15,13 @@
 "Author" = "作者";
 "AUTHOR" = "作者";
 "Focus color" = "专注色";
+"Focus background color" = "专注背景色";
 "Unit pad color" = "单位面板色";
 "Menu background color" = "菜单背景色";
 "Toast background color" = "弹窗背景色";
 "Keypad background color" = "键盘背景色";
 "Number key color" = "数字键背景色";
-"Debug toast:  " = "调试：";
+"Debug toast:  " = "调试弹窗：";
 "On" = "开";
 "Off" = "关";
 "length" = "长度";
@@ -52,3 +53,4 @@
 "Huan Zhang's LinkedIn" = "张洹的领英";
 " TO " = " 到 ";
 "Huan Zhang" = "张洹";
+"Unit List background color" = "单位列表背景色";

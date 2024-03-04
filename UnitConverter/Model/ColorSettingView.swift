@@ -60,6 +60,12 @@ class ColorSettings: ObservableObject {
         }
     }
     
+    @Published var focusBackgroundColor: Color {
+        didSet {
+            UserDefaults.standard.setColor(color: UIColor(focusBackgroundColor), forKey: "FocusBackgroundColor")
+        }
+    }
+
     @Published var unitPadColor: Color {
         didSet {
             UserDefaults.standard.setColor(color: UIColor(unitPadColor), forKey: "UnitPadColor")
@@ -90,13 +96,21 @@ class ColorSettings: ObservableObject {
         }
     }
 
+    @Published var listBackgroundColor: Color {
+        didSet {
+            UserDefaults.standard.setColor(color: UIColor(listBackgroundColor), forKey: "ListBackgroundColor")
+        }
+    }
+
     init() {
         self.focusColor  = Color(UserDefaults.standard.colorForKey(key: "FocusColor") ?? .yellow)
+        self.focusBackgroundColor  = Color(UserDefaults.standard.colorForKey(key: "FocusBackgroundColor") ?? .green)
         self.unitPadColor  = Color(UserDefaults.standard.colorForKey(key: "UnitPadColor") ?? UIColor(Color(.lightGray)))
         self.menuBackgroudColor  = Color(UserDefaults.standard.colorForKey(key: "MenuBackgroundColor") ?? .white)
         self.toastBackgroudColor  = Color(UserDefaults.standard.colorForKey(key: "ToastBackgroundColor") ?? .white)
         self.keypadBackgroudColor  = Color(UserDefaults.standard.colorForKey(key: "KeypadBackgroundColor") ?? .black)
         self.numberKeyColor  = Color(UserDefaults.standard.colorForKey(key: "NumberKeyColor") ?? UIColor(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 1))
+        self.listBackgroundColor  = Color(UserDefaults.standard.colorForKey(key: "ListBackgroundColor") ?? .white)
     }
 }
 
@@ -105,10 +119,12 @@ struct ColorSettingView: View {
 
     var body: some View {
         ColorPicker("Focus color".local, selection: $settings.focusColor)
+        ColorPicker("Focus background color".local, selection: $settings.focusBackgroundColor)
         ColorPicker("Unit pad color".local, selection: $settings.unitPadColor)
         ColorPicker("Menu background color".local, selection: $settings.menuBackgroudColor)
         ColorPicker("Toast background color".local, selection: $settings.toastBackgroudColor)
         ColorPicker("Keypad background color".local, selection: $settings.keypadBackgroudColor)
         ColorPicker("Number key color".local, selection: $settings.numberKeyColor)
+        ColorPicker("Unit List background color".local, selection: $settings.listBackgroundColor)
     }
 }

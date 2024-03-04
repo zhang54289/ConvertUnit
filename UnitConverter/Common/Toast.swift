@@ -100,10 +100,8 @@ struct ToggleView: View {
     
     var body: some View {
         Toggle(isOn: $settings.isSwitchedOn) {
-            Text("Debug toast:  ".uppercased().local)
-                .font(.system(size: 18))
+            Text("Debug toast:  ".local)
             + Text("\(settings.isSwitchedOn ? "On".local : "Off".local)")
-                .font(.system(size: 18))
                 .foregroundColor(settings.isSwitchedOn ? .red: .green)
         }
         .onChange(of: settings.isSwitchedOn) { value in
