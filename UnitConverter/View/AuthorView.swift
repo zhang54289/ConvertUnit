@@ -16,11 +16,9 @@ struct AuthorView: View {
                 let primaryLanguage = components.first ?? preferredLanguage
                 if primaryLanguage == "en" {
                     linkedInView
-//                    gitHubView
-                } else {
-                    Text("Huan Zhang".local)
-                        .bold()
                 }
+                emailView
+                    .bold()
             }
             Spacer()
         }
@@ -53,6 +51,16 @@ struct AuthorView: View {
             }
         } label: {
             Text("Huan Zhang's LinkedIn".local)
+        }
+    }
+    
+    @ViewBuilder
+    private var emailView: some View {
+        Link(destination: URL(string: "mailto:zhang54288@gmail.com")!) {
+            HStack {
+                Image(systemName: "envelope.fill")
+                Text("Contact author Huan Zhang")
+            }
         }
     }
     
