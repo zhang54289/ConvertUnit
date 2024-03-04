@@ -10,15 +10,11 @@ import Foundation
 
 extension String {
     var local: String {
-        if let preferredLanguage = Locale.preferredLanguages.first {
-            let components = preferredLanguage.components(separatedBy: "-")
-            let primaryLanguage = components.first ?? preferredLanguage
-            if primaryLanguage != "zh" {
-                return self
-            }
+        if Locale.preferredLanguages.first?.hasPrefix("zh") == true {
+            return NSLocalizedString(self, comment: "")
+        } else {
+            return self
         }
-        
-        return NSLocalizedString(self, comment: "")
     }
 }
 
