@@ -13,7 +13,7 @@ extension String {
         if let preferredLanguage = Locale.preferredLanguages.first {
             let components = preferredLanguage.components(separatedBy: "-")
             let primaryLanguage = components.first ?? preferredLanguage
-            if primaryLanguage == "en" {
+            if primaryLanguage != "zh" {
                 return self
             }
         }
