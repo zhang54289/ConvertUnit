@@ -8,10 +8,11 @@
 import Foundation
 import SwiftUI
 
-enum UnitType: Equatable, Hashable {
-    case length
+enum UnitType: Int, Equatable, Hashable {
+    case length = 0
     case weight
     case area
+    case power
 }
 
 struct Unit: Identifiable, Equatable, Hashable {

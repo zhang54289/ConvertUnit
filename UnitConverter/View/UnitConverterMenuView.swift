@@ -26,6 +26,7 @@ struct UnitConverterMenuView: View {
                                         .navigationBarTitle(unitMenu.name.uppercased(), displayMode: .inline)
                     ) {
                         unitMenuView(unitMenu)
+                            .padding(.bottom, 20)
                     }
                 }
             }

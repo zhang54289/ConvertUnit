@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   UnitConverter
 
@@ -55,3 +55,8 @@
 "Huan Zhang" = "张洹";
 "Unit List background color" = "单位列表背景色";
 "Contact author Huan Zhang" = "联系作者张洹";
+"Power" = "功率";
+"power" = "功率";
+"Horse Power" = "马力";
+"Kilowatt" = "千瓦";
+"Watt" = "瓦";
