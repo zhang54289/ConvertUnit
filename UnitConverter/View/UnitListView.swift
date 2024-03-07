@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UnitListView: View {
     @ObservedObject var viewModel: UnitConverterMenuViewModel
-    @ObservedObject var colorSettings = ColorSettings.shared
+    @EnvironmentObject var colorSettings: ColorSettings
     @Binding var inputNumber: Double
     
     let isLeft: Bool

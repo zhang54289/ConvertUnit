@@ -46,7 +46,7 @@ class Toast: ObservableObject {
 
 struct ToastView: View {
     @ObservedObject var toast = Toast.shared
-    @ObservedObject var colorSettings = ColorSettings.shared
+    @EnvironmentObject var colorSettings: ColorSettings
 
     @State private var hideTimer: Timer?
     @State private var yOffset: CGFloat = UIScreen.main.bounds.height

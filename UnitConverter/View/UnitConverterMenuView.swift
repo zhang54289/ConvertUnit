@@ -16,8 +16,8 @@ struct UnitConverterMenuView: View {
             Spacer().frame(height: 20)
             
             LazyVGrid(columns: columns, spacing: 10) {
-                let unitMenus = Array(Menu.menuList).sorted(by: { $0.key.rawValue < $1.key.rawValue })
-                ForEach(unitMenus, id: \.key) { key, unitMenu in
+                let unitMenus = viewModel.menuList.sorted(by: { $0.type.rawValue < $1.type.rawValue })
+                ForEach(unitMenus, id: \.self) { unitMenu in
                     NavigationLink(destination:
                                     UnitConverterView(viewModel: viewModel,
                                                       unitList: unitMenu.unitList,

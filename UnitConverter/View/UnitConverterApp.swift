@@ -9,16 +9,19 @@ import SwiftUI
 
 @main
 struct UnitConverterApp: App {
+    @StateObject var colorSettings = ColorSettings()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(colorSettings)
         }
     }
 }
 
 struct ContentView: View {
-    @ObservedObject var colorSettings = ColorSettings.shared
-    
+    @EnvironmentObject var colorSettings: ColorSettings
+
     var body: some View {
         NavigationView {
             VStack {

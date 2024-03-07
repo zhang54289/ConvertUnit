@@ -44,7 +44,7 @@ enum CalcButton: String {
 
 struct CalculatorView: View {
     @ObservedObject var viewModel: UnitConverterMenuViewModel
-    @ObservedObject var colorSettings = ColorSettings.shared
+    @EnvironmentObject var colorSettings: ColorSettings
 
     @Binding var inputNumber: Double
 

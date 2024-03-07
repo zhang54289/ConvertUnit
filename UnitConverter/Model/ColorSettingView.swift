@@ -19,32 +19,30 @@ extension String {
 }
 
 extension UserDefaults {
-  func colorForKey(key: String) -> UIColor? {
-    var colorReturnded: UIColor?
-    if let colorData = data(forKey: key) {
-      do {
-        if let color = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(colorData) as? UIColor {
-          colorReturnded = color
+    func colorForKey(key: String) -> UIColor? {
+        var colorReturned: UIColor?
+        if let colorData = UserDefaults.standard.data(forKey: key) {
+            do {
+                colorReturned = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: colorData)
+            } catch {
+                print("Error unarchiving color for UserDefaults: \(error)")
+            }
         }
-      } catch {
-        print("Error UserDefaults")
-      }
+        return colorReturned
     }
-    return colorReturnded
-  }
-  
-  func setColor(color: UIColor?, forKey key: String) {
-    var colorData: NSData?
-    if let color = color {
-      do {
-        let data = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false) as NSData?
-        colorData = data
-      } catch {
-        print("Error UserDefaults")
-      }
+    
+    func setColor(color: UIColor?, forKey key: String) {
+        var colorData: NSData?
+        if let color = color {
+            do {
+                let data = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false) as NSData?
+                colorData = data
+            } catch {
+                print("Error UserDefaults")
+            }
+        }
+        set(colorData, forKey: key)
     }
-    set(colorData, forKey: key)
-  }
 }
 
 class ColorSettings: ObservableObject {
@@ -111,16 +109,16 @@ class ColorSettings: ObservableObject {
 }
 
 struct ColorSettingView: View {
-    @ObservedObject var settings = ColorSettings.shared
+    @EnvironmentObject var colorSettings: ColorSettings
 
     var body: some View {
-        ColorPicker("Focus color".local, selection: $settings.focusColor)
-        ColorPicker("Focus background color".local, selection: $settings.focusBackgroundColor)
-        ColorPicker("Unit pad color".local, selection: $settings.unitPadColor)
-        ColorPicker("Menu background color".local, selection: $settings.menuBackgroudColor)
-        ColorPicker("Toast background color".local, selection: $settings.toastBackgroudColor)
-        ColorPicker("Keypad background color".local, selection: $settings.keypadBackgroudColor)
-        ColorPicker("Number key color".local, selection: $settings.numberKeyColor)
-        ColorPicker("Unit List background color".local, selection: $settings.listBackgroundColor)
+        ColorPicker("Focus color".local, selection: $colorSettings.focusColor)
+        ColorPicker("Focus background color".local, selection: $colorSettings.focusBackgroundColor)
+        ColorPicker("Unit pad color".local, selection: $colorSettings.unitPadColor)
+        ColorPicker("Menu background color".local, selection: $colorSettings.menuBackgroudColor)
+        ColorPicker("Toast background color".local, selection: $colorSettings.toastBackgroudColor)
+        ColorPicker("Keypad background color".local, selection: $colorSettings.keypadBackgroudColor)
+        ColorPicker("Number key color".local, selection: $colorSettings.numberKeyColor)
+        ColorPicker("Unit List background color".local, selection: $colorSettings.listBackgroundColor)
     }
 }

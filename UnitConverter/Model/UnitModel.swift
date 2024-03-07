@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum UnitType: Int, Equatable, Hashable {
-    case length = 0
+    case length = 0 // in menu, sorted in this order
     case weight
     case area
     case power
@@ -38,12 +38,24 @@ struct UnitMenu: Identifiable, Hashable {
     var type: UnitType
     var color: Color
     var unitList: [Unit]
-    
+    var leftNumber: Double
+    var rightNumber: Double
+    var leftIndex: Int
+    var rightIndex: Int
+    var leftList: [Unit]
+    var rightList: [Unit]
+
     init(name: String, type: UnitType = .length, color: Color, unitList: [Unit] = []) {
         self.name = name
         self.type = type
         self.color = color
         self.unitList = unitList
+        self.leftNumber = 0
+        self.rightNumber = 0
+        self.leftIndex = 0
+        self.rightIndex = 0
+        self.leftList = []
+        self.rightList = []
     }
 }
 

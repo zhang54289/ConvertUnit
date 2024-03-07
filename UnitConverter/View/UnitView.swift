@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UnitView: View {
     @ObservedObject var unitViewModel: UnitViewModel
-    @ObservedObject var colorSettings = ColorSettings.shared
+    @EnvironmentObject var colorSettings: ColorSettings
 
     @Binding var leftIndex: Int
     @Binding var rightIndex: Int
