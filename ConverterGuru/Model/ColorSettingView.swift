@@ -1,6 +1,6 @@
 //
 //  ColorSettingView.swift
-//  UnitConverter
+//  ConverterGuru
 //
 //  Created by zhanghuan on 3/2/24.
 //

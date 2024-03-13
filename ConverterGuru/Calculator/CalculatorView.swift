@@ -1,6 +1,6 @@
 //
 //  CalculatorView.swift
-//  UnitConverter
+//  ConverterGuru
 //
 //  Created by Huan Zhang on 2/12/24.
 //
@@ -43,7 +43,7 @@ enum CalcButton: String {
 }
 
 struct CalculatorView: View {
-    @ObservedObject var viewModel: UnitConverterMenuViewModel
+    @ObservedObject var viewModel: ConverterGuruMenuViewModel
     @EnvironmentObject var colorSettings: ColorSettings
 
     @Binding var inputNumber: Double

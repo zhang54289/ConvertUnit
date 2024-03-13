@@ -1,6 +1,6 @@
 //
 //  UnitModel.swift
-//  UnitConverter
+//  ConverterGuru
 //
 //  Created by Huan Zhang on 2/12/24.
 //

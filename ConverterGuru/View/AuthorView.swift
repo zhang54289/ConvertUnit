@@ -1,6 +1,6 @@
 //
 //  AuthorView.swift
-//  UnitConverter
+//  ConverterGuru
 //
 //  Created by zhanghuan on 3/1/24.
 //

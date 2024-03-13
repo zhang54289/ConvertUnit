@@ -1,14 +1,14 @@
 //
-//  UnitConverterMenuView.swift
-//  UnitConverter
+//  ConverterGuruMenuView.swift
+//  ConverterGuru
 //
 //  Created by Huan Zhang on 2/28/24.
 //
 
 import SwiftUI
 
-struct UnitConverterMenuView: View {
-    @StateObject var viewModel = UnitConverterMenuViewModel()
+struct ConverterGuruMenuView: View {
+    @StateObject var viewModel = ConverterGuruMenuViewModel()
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
     
     var body: some View {
@@ -19,7 +19,7 @@ struct UnitConverterMenuView: View {
                 let unitMenus = viewModel.menuList.sorted(by: { $0.type.rawValue < $1.type.rawValue })
                 ForEach(unitMenus, id: \.self) { unitMenu in
                     NavigationLink(destination:
-                                    UnitConverterView(viewModel: viewModel,
+                                    ConverterGuruView(viewModel: viewModel,
                                                       unitMenu: unitMenu,
                                                       leftNumber: $viewModel.leftNumber,
                                                       rightNumber: $viewModel.rightNumber)

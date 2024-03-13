@@ -1,6 +1,6 @@
 //
-//  UnitConverterApp.swift
-//  UnitConverter
+//  ConverterGuruApp.swift
+//  ConverterGuru
 //
 //  Created by Huan Zhang on 2/12/24.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct UnitConverterApp: App {
+struct ConverterGuruApp: App {
     @StateObject var colorSettings = ColorSettings()
     
     var body: some Scene {
@@ -25,7 +25,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                UnitConverterMenuView()
+                ConverterGuruMenuView()
             }
             .padding()
             .navigationTitle("Select Unit".local)

@@ -1,6 +1,6 @@
 //
-//  UnitConverterMenuViewModel.swift
-//  UnitConverter
+//  ConverterGuruMenuViewModel.swift
+//  ConverterGuru
 //
 //  Created by Huan Zhang on 2/28/24.
 //
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-final class UnitConverterMenuViewModel: ObservableObject {
+final class ConverterGuruMenuViewModel: ObservableObject {
     @Published var menuList: [UnitMenu]
     @Published var leftNumber: Double
     @Published var rightNumber: Double

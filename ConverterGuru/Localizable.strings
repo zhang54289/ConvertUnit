@@ -1,12 +1,12 @@
 /*
   Localizable.strings
-  UnitConverter
+  ConverterGuru
 
   Created by zhanghuan on 3/2/24.
   
 */
 
-"UnitConverter" = "单位转换";
+"ConverterGuru" = "单位转换";
 "Only support max " = "最大只支持 ";
 " digital." = " 位。";
 "Length" = "长度";

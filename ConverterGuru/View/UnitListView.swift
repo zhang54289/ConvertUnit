@@ -1,6 +1,6 @@
 //
 //  UnitListView.swift
-//  UnitConverter
+//  ConverterGuru
 //
 //  Created by Huan Zhang on 2/28/24.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UnitListView: View {
-    @ObservedObject var viewModel: UnitConverterMenuViewModel
+    @ObservedObject var viewModel: ConverterGuruMenuViewModel
     
     @EnvironmentObject var colorSettings: ColorSettings
     @Binding var inputNumber: Double

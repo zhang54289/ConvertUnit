@@ -1,14 +1,14 @@
 //
-//  UnitConverterView.swift
-//  UnitConverter
+//  ConverterGuruView.swift
+//  ConverterGuru
 //
 //  Created by Huan Zhang on 2/28/24.
 //
 
 import SwiftUI
 
-struct UnitConverterView: View {
-    @ObservedObject var viewModel: UnitConverterMenuViewModel
+struct ConverterGuruView: View {
+    @ObservedObject var viewModel: ConverterGuruMenuViewModel
     let unitMenu: UnitMenu
     @Binding var leftNumber: Double
     @Binding var rightNumber: Double
