@@ -26,7 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CC3BD02B2B7A8AEE00035929 /* UnitConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC3BD02B2B7A8AEE00035929 /* Converter Guru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Converter Guru.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC3BD02E2B7A8AEE00035929 /* UnitConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverterApp.swift; sourceTree = "<group>"; };
 		CC3BD0322B7A8AF100035929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC3BD0352B7A8AF100035929 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 		CC3BD0222B7A8AEE00035929 = {
 			isa = PBXGroup;
 			children = (
-				CC3BD02D2B7A8AEE00035929 /* UnitConverter */,
+				CC3BD02D2B7A8AEE00035929 /* ConverterGuru */,
 				CC3BD02C2B7A8AEE00035929 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,12 +67,12 @@
 		CC3BD02C2B7A8AEE00035929 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CC3BD02B2B7A8AEE00035929 /* UnitConverter.app */,
+				CC3BD02B2B7A8AEE00035929 /* Converter Guru.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CC3BD02D2B7A8AEE00035929 /* UnitConverter */ = {
+		CC3BD02D2B7A8AEE00035929 /* ConverterGuru */ = {
 			isa = PBXGroup;
 			children = (
 				F261CA9A2B9444F500B499DA /* zh-Hans.lproj */,
@@ -84,7 +84,7 @@
 				CC3BD0322B7A8AF100035929 /* Assets.xcassets */,
 				CC3BD0342B7A8AF100035929 /* Preview Content */,
 			);
-			path = UnitConverter;
+			path = ConverterGuru;
 			sourceTree = "<group>";
 		};
 		CC3BD0342B7A8AF100035929 /* Preview Content */ = {
@@ -154,9 +154,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CC3BD02A2B7A8AEE00035929 /* UnitConverter */ = {
+		CC3BD02A2B7A8AEE00035929 /* Converter Guru */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CC3BD0392B7A8AF100035929 /* Build configuration list for PBXNativeTarget "UnitConverter" */;
+			buildConfigurationList = CC3BD0392B7A8AF100035929 /* Build configuration list for PBXNativeTarget "Converter Guru" */;
 			buildPhases = (
 				CC3BD0272B7A8AEE00035929 /* Sources */,
 				CC3BD0282B7A8AEE00035929 /* Frameworks */,
@@ -166,9 +166,9 @@
 			);
 			dependencies = (
 			);
-			name = UnitConverter;
+			name = "Converter Guru";
 			productName = UnitConverter002;
-			productReference = CC3BD02B2B7A8AEE00035929 /* UnitConverter.app */;
+			productReference = CC3BD02B2B7A8AEE00035929 /* Converter Guru.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CC3BD0262B7A8AEE00035929 /* Build configuration list for PBXProject "UnitConverter" */;
+			buildConfigurationList = CC3BD0262B7A8AEE00035929 /* Build configuration list for PBXProject "Converter Guru" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -199,7 +199,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CC3BD02A2B7A8AEE00035929 /* UnitConverter */,
+				CC3BD02A2B7A8AEE00035929 /* Converter Guru */,
 			);
 		};
 /* End PBXProject section */
@@ -372,7 +372,7 @@
 				DEVELOPMENT_TEAM = FRM6B47L36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = UnitConverter;
+				INFOPLIST_KEY_CFBundleDisplayName = "Converter Guru";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -404,7 +404,7 @@
 				DEVELOPMENT_TEAM = FRM6B47L36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = UnitConverter;
+				INFOPLIST_KEY_CFBundleDisplayName = "Converter Guru";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -427,7 +427,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CC3BD0262B7A8AEE00035929 /* Build configuration list for PBXProject "UnitConverter" */ = {
+		CC3BD0262B7A8AEE00035929 /* Build configuration list for PBXProject "Converter Guru" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC3BD0372B7A8AF100035929 /* Debug */,
@@ -436,7 +436,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CC3BD0392B7A8AF100035929 /* Build configuration list for PBXNativeTarget "UnitConverter" */ = {
+		CC3BD0392B7A8AF100035929 /* Build configuration list for PBXNativeTarget "Converter Guru" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC3BD03A2B7A8AF100035929 /* Debug */,
