@@ -41,10 +41,10 @@ final class UnitViewModel: ObservableObject {
                     if let isLeft = self?.isLeft {
                         if isLeft {
                             self?.leftFunc?()
-                            print("Focus on left index:".local, index)
+                            Toast.shared.showPopup(Text("Focus on left index:".local + String(index)), isDebug: true)
                         } else {
                             self?.rightFunc?()
-                            print("Focus on right index:".local, index)
+                            Toast.shared.showPopup(Text("Focus on right index:".local + String(index)), isDebug: true)
                         }
                     }
                 }

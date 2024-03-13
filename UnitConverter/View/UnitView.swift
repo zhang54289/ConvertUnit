@@ -48,7 +48,7 @@ struct UnitView: View {
                                 }
                             }
                             HStack(spacing: 10) {
-                                Text(unit.name.capitalized)
+                                Text(unit.name)
                                 Spacer()
                                 Text(unit.n)
                             }

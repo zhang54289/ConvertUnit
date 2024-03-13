@@ -13,8 +13,28 @@ enum UnitType: Int, Equatable, Hashable {
     case weight
     case area
     case power
+    case volumn
+    case usvolumn
 }
 
+extension UnitType {
+    var name: String {
+        switch self {
+        case .length:
+            return "length"
+        case .weight:
+            return "weight"
+        case .area:
+            return "area"
+        case .power:
+            return "power"
+        case .volumn:
+            return "volumn"
+        case .usvolumn:
+            return "usvolumn"
+        }
+    }
+}
 struct Unit: Identifiable, Equatable, Hashable {
     var id = UUID()
     var name: String

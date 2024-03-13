@@ -9,11 +9,12 @@ import SwiftUI
 
 struct UnitListView: View {
     @ObservedObject var viewModel: UnitConverterMenuViewModel
+    
     @EnvironmentObject var colorSettings: ColorSettings
     @Binding var inputNumber: Double
     
     let isLeft: Bool
-    let list: [Unit]
+    let unitMenu: UnitMenu
     
     var body: some View {
         GeometryReader { geometry in
@@ -24,10 +25,10 @@ struct UnitListView: View {
                         VStack(spacing: 0) {
                             Divider()
                                 .frame(height: 10)
-                            ForEach(list.indices, id: \.self) { index in
+                            ForEach(unitMenu.unitList.indices, id: \.self) { index in
                                 VStack(spacing: 0) {
                                     UnitView(unitViewModel: UnitViewModel(proxy,
-                                                                          list[index].id,
+                                                                          unitMenu.unitList[index].id,
                                                                           isLeft, index,
                                                                           listHeight: geometry.size.height,
                                                                           leftFunc: { viewModel.leftIndex =  index } ,
@@ -35,15 +36,25 @@ struct UnitListView: View {
                                              leftIndex: $viewModel.leftIndex,
                                              rightIndex: $viewModel.rightIndex,
                                              inputNumber: $inputNumber,
-                                             unit: list[index]) {
+                                             unit: unitMenu.unitList[index]) {
                                         String(viewModel.getConvertString())
                                     }
                                              .frame(height: 60)
-                                             .id(list[index].id)
+                                             .id(unitMenu.unitList[index].id)
                                              .onTapGesture {
                                                  withAnimation {
-                                                     proxy.scrollTo(list[index].id, anchor: .center)
+                                                     proxy.scrollTo(unitMenu.unitList[index].id, anchor: .center)
                                                  }
+                                             }
+                                             .onChange(of: viewModel.leftIndex) { index in
+                                                 guard (viewModel.selectedMenu == unitMenu.type) else { return }
+                                                 let keyWord = "firstIndex" + unitMenu.type.name + "Left"
+                                                 UserDefaults.standard.set(index, forKey: keyWord)
+                                             }
+                                             .onChange(of: viewModel.rightIndex) { index in
+                                                 guard (viewModel.selectedMenu == unitMenu.type) else { return }
+                                                 let keyWord = "firstIndex" + unitMenu.type.name + "Right"
+                                                 UserDefaults.standard.set(index, forKey: keyWord)
                                              }
                                     Divider()
                                         .frame(height: 10)
@@ -55,7 +66,7 @@ struct UnitListView: View {
                     .background(colorSettings.listBackgroundColor)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                            viewModel.scrollToFirstUnit(proxy: proxy, isLeft: isLeft)
+                            viewModel.scrollToFirstUnit(proxy: proxy, unitMenu: unitMenu, isLeft: isLeft)
                         }
                     }
                 }

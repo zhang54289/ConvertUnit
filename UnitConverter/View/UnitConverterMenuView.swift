@@ -20,7 +20,7 @@ struct UnitConverterMenuView: View {
                 ForEach(unitMenus, id: \.self) { unitMenu in
                     NavigationLink(destination:
                                     UnitConverterView(viewModel: viewModel,
-                                                      unitList: unitMenu.unitList,
+                                                      unitMenu: unitMenu,
                                                       leftNumber: $viewModel.leftNumber,
                                                       rightNumber: $viewModel.rightNumber)
                                         .navigationBarTitle(unitMenu.name.uppercased(), displayMode: .inline)
@@ -33,7 +33,7 @@ struct UnitConverterMenuView: View {
         }
         Spacer()
         NavigationLink(destination: AuthorView().navigationBarTitle("AUTHOR".local, displayMode: .inline)) {
-            unitMenuView(UnitMenu(name: "Author".local, color: .green))
+            unitMenuView(UnitMenu(name: "Author".local, color: .orange))
         }
     }
     
@@ -44,7 +44,7 @@ struct UnitConverterMenuView: View {
                 .inset(by: 1.5)
                 .fill(unitMenu.color)
                 .frame(width: 70, height: 70)
-            Text(unitMenu.name.capitalized)
+            Text(unitMenu.name)
                 .bold()
         }
     }

@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     var local: String {
-        if Locale.preferredLanguages.first?.hasPrefix("zh") == true {
+        if Locale.current.language.languageCode?.identifier.hasPrefix("zh") == true {
             return NSLocalizedString(self, comment: "")
         } else {
             return self

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UnitConverterView: View {
     @ObservedObject var viewModel: UnitConverterMenuViewModel
-    let unitList: [Unit]
+    let unitMenu: UnitMenu
     @Binding var leftNumber: Double
     @Binding var rightNumber: Double
     
@@ -18,16 +18,17 @@ struct UnitConverterView: View {
             UnitListView(viewModel: viewModel,
                          inputNumber: $leftNumber,
                          isLeft: true,
-                         list: unitList)
+                         unitMenu: unitMenu)
             UnitListView(viewModel: viewModel,
                          inputNumber: $rightNumber,
                          isLeft: false,
-                         list: unitList)
+                         unitMenu: unitMenu)
         }
         .frame(maxHeight: .infinity)
         .onAppear {
-            viewModel.leftList = unitList
-            viewModel.rightList = unitList
+            viewModel.selectedMenu = unitMenu.type
+            viewModel.leftList = unitMenu.unitList
+            viewModel.rightList = unitMenu.unitList
         }
         .onDisappear {
             leftNumber = 0

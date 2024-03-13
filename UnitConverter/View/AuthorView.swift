@@ -9,17 +9,13 @@ import SwiftUI
 
 struct AuthorView: View {
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 40) {
             picView
-            if let preferredLanguage = Locale.preferredLanguages.first {
-                let components = preferredLanguage.components(separatedBy: "-")
-                let primaryLanguage = components.first ?? preferredLanguage
-                if primaryLanguage == "en" {
-                    linkedInView
-                }
-                emailView
-                    .bold()
+            if Locale.current.language.languageCode?.identifier == "en" {
+                linkedInView
             }
+            emailView
+                .bold()
             Spacer()
         }
         .padding(.top, 60)
