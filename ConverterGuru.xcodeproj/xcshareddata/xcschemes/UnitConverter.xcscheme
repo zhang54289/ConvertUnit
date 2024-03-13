@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CC3BD02A2B7A8AEE00035929"
-               BuildableName = "Converter Guru.app"
-               BlueprintName = "Converter Guru"
-               ReferencedContainer = "container:Converter Guru.xcodeproj">
+               BuildableName = "ConverterGuru.app"
+               BlueprintName = "ConverterGuru"
+               ReferencedContainer = "container:ConverterGuru.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CC3BD02A2B7A8AEE00035929"
-            BuildableName = "Converter Guru.app"
-            BlueprintName = "Converter Guru"
-            ReferencedContainer = "container:Converter Guru.xcodeproj">
+            BuildableName = "ConverterGuru.app"
+            BlueprintName = "ConverterGuru"
+            ReferencedContainer = "container:ConverterGuru.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CC3BD02A2B7A8AEE00035929"
-            BuildableName = "Converter Guru.app"
-            BlueprintName = "Converter Guru"
-            ReferencedContainer = "container:Converter Guru.xcodeproj">
+            BuildableName = "ConverterGuru.app"
+            BlueprintName = "ConverterGuru"
+            ReferencedContainer = "container:ConverterGuru.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
