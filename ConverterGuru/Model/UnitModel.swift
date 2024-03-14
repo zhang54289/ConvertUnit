@@ -15,6 +15,7 @@ enum UnitType: Int, Equatable, Hashable {
     case power
     case volumn
     case usvolumn
+    case height
 }
 
 extension UnitType {
@@ -32,6 +33,8 @@ extension UnitType {
             return "volumn"
         case .usvolumn:
             return "usvolumn"
+        case .height:
+            return "height"
         }
     }
 }

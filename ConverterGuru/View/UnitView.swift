@@ -36,24 +36,7 @@ struct UnitView: View {
                     }
                     .cornerRadius(3)
                     .overlay(
-                        VStack {
-                            HStack {
-                                Spacer()
-                                if unitViewModel.isLeft && (leftIndex == unitViewModel.index) {
-                                    Text(String(inputNumber).trimDotZero())
-                                } else if !unitViewModel.isLeft && (rightIndex == unitViewModel.index) {
-                                    Text(action?() ?? " ")
-                                } else {
-                                    Text(" ")
-                                }
-                            }
-                            HStack(spacing: 10) {
-                                Text(unit.name)
-                                Spacer()
-                                Text(unit.n)
-                            }
-                        }
-                            .padding(5)
+                        unitOverlayView
                     )
                     .padding(5)
             }
@@ -62,6 +45,57 @@ struct UnitView: View {
                 view.bold()
             }
         }
+    }
+    
+    @ViewBuilder
+    var unitOverlayView: some View {
+        if (unit.name == "Feet".local) && (unit.n == "Inch".local) {
+            heightView
+        } else {
+            normalView
+        }
+    }
+    
+    @ViewBuilder
+    var normalView: some View {
+        VStack {
+            HStack {
+                Spacer()
+                if unitViewModel.isLeft && (leftIndex == unitViewModel.index) {
+                    Text(String(inputNumber).trimDotZero())
+                } else if !unitViewModel.isLeft && (rightIndex == unitViewModel.index) {
+                    Text(action?() ?? " ")
+                } else {
+                    Text(" ")
+                }
+            }
+            HStack(spacing: 10) {
+                Text(unit.name)
+                Spacer()
+                Text(unit.n)
+            }
+        }
+            .padding(5)
+    }
+    
+    @ViewBuilder
+    var heightView: some View {
+        VStack {
+            let feet = String(Int(floor((inputNumber + 1.27) / 30.48)))
+            let inch = String(Int(floor((inputNumber + 1.27) / 2.54)) % 12 )
+            HStack {
+                Spacer()
+                Text(feet)
+                Spacer()
+                Text(inch)
+            }
+            HStack(spacing: 10) {
+                Text(unit.name)
+                Spacer()
+                Text(unit.n)
+            }
+        }
+            .padding(5)
     }
 }
 

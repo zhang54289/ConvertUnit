@@ -16,7 +16,7 @@ final class ConverterGuruMenuViewModel: ObservableObject {
     @Published var rightIndex: Int
     @Published var leftList: [Unit]
     @Published var rightList: [Unit]
-    var selectedMenu: UnitType = .length
+    static var selectedMenu: UnitType = .length
     var leftScrollProxy: ScrollViewProxy?
     var rightScrollProxy: ScrollViewProxy?
     @Published var isShowSetting = false
@@ -85,7 +85,10 @@ final class ConverterGuruMenuViewModel: ObservableObject {
                                         Unit(name: "Cubic Foot".local, n: "ft³", toMetic: 28.31684659, isEmperial: true),
                                         Unit(name: "Bushel".local, n: "bushel", toMetic: 35.23907017, isEmperial: true),
                                         Unit(name: "Barrel".local, n: "barrel", toMetic: 158.9872949, isEmperial: true),
-                                        Unit(name: "Cubic Yard".local, n: "yd³", toMetic: 764.554858, isEmperial: true)])]
+                                        Unit(name: "Cubic Yard".local, n: "yd³", toMetic: 764.554858, isEmperial: true)]),
+                    UnitMenu(name: "Height".local, type: .height, color: .gray,
+                             unitList: [Unit(name: "Centimeter".local, n: "cm", toMetic: 1, isEmperial: false),
+                                        Unit(name: "Feet".local, n: "Inch".local, toMetic: 1, isEmperial: true)])]
 
         
         self.leftNumber = 0
@@ -164,6 +167,7 @@ final class ConverterGuruMenuViewModel: ObservableObject {
     }
     
     func scrollSwap() {
+        guard ConverterGuruMenuViewModel.selectedMenu != .height else { return }
         let swapToLeftUnitID = leftList[rightIndex].id
         let swapToRightUnitID = rightList[leftIndex].id
         

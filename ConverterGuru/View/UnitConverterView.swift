@@ -25,8 +25,11 @@ struct ConverterGuruView: View {
                          unitMenu: unitMenu)
         }
         .frame(maxHeight: .infinity)
+        .if(unitMenu.type == .height) { view in
+            view.disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+        }
         .onAppear {
-            viewModel.selectedMenu = unitMenu.type
+            ConverterGuruMenuViewModel.selectedMenu = unitMenu.type
             viewModel.leftList = unitMenu.unitList
             viewModel.rightList = unitMenu.unitList
         }
