@@ -13,8 +13,8 @@ enum UnitType: Int, Equatable, Hashable {
     case weight
     case area
     case power
-    case volumn
-    case usvolumn
+    case volume
+    case usvolume
     case height
 }
 
@@ -29,10 +29,10 @@ extension UnitType {
             return "area"
         case .power:
             return "power"
-        case .volumn:
-            return "volumn"
-        case .usvolumn:
-            return "usvolumn"
+        case .volume:
+            return "volume"
+        case .usvolume:
+            return "usvolume"
         case .height:
             return "height"
         }

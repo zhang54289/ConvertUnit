@@ -10,11 +10,11 @@ import Foundation
 
 extension String {
     var local: String {
-        if Locale.current.language.languageCode?.identifier.hasPrefix("zh") == true {
-            return NSLocalizedString(self, comment: "")
-        } else {
+//        if Locale.current.language.languageCode?.identifier.hasPrefix("zh") == true {
+//            return NSLocalizedString(self, comment: "")
+//        } else {
             return self
-        }
+//        }
     }
 }
 
