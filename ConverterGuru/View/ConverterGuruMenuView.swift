@@ -39,13 +39,14 @@ struct ConverterGuruMenuView: View {
     
     @ViewBuilder
     private func unitMenuView(_ unitMenu: UnitMenu) -> some View {
-        VStack(spacing: 10) {
-            RoundedRectangle(cornerRadius: 6)
+        ZStack {
+            Circle()
                 .inset(by: 1.5)
                 .fill(unitMenu.color)
-                .frame(width: 70, height: 70)
+                .frame(width: 100, height: 100)
             Text(unitMenu.name)
                 .bold()
+                .foregroundColor(unitMenu.color.inverted())
         }
     }
 }

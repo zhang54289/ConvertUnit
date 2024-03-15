@@ -18,6 +18,18 @@ extension String {
     }
 }
 
+extension Color {
+    func inverted() -> Color {
+        let ciColor = CIColor(color: UIColor(self))
+        
+        let invertedRed = 1.0 - ciColor.red
+        let invertedGreen = 1.0 - ciColor.green
+        let invertedBlue = 1.0 - ciColor.blue
+        
+        return Color(red: invertedRed, green: invertedGreen, blue: invertedBlue)
+    }
+}
+
 extension UserDefaults {
     func colorForKey(key: String) -> UIColor? {
         var colorReturned: UIColor?
@@ -97,14 +109,14 @@ class ColorSettings: ObservableObject {
     }
     
     init() {
-        self.focusColor  = Color(UserDefaults.standard.colorForKey(key: "FocusColor") ?? .yellow)
-        self.focusBackgroundColor  = Color(UserDefaults.standard.colorForKey(key: "FocusBackgroundColor") ?? .green)
+        self.focusColor  = Color(UserDefaults.standard.colorForKey(key: "FocusColor") ?? .red)
+        self.focusBackgroundColor  = Color(UserDefaults.standard.colorForKey(key: "FocusBackgroundColor") ?? .yellow)
         self.unitPadColor  = Color(UserDefaults.standard.colorForKey(key: "UnitPadColor") ?? UIColor(Color(.lightGray)))
         self.menuBackgroudColor  = Color(UserDefaults.standard.colorForKey(key: "MenuBackgroundColor") ?? .white)
         self.toastBackgroudColor  = Color(UserDefaults.standard.colorForKey(key: "ToastBackgroundColor") ?? .white)
         self.keypadBackgroudColor  = Color(UserDefaults.standard.colorForKey(key: "KeypadBackgroundColor") ?? .black)
         self.numberKeyColor  = Color(UserDefaults.standard.colorForKey(key: "NumberKeyColor") ?? UIColor(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 1))
-        self.listBackgroundColor  = Color(UserDefaults.standard.colorForKey(key: "ListBackgroundColor") ?? .white)
+        self.listBackgroundColor  = Color(UserDefaults.standard.colorForKey(key: "ListBackgroundColor") ?? .brown)
     }
 }
 
