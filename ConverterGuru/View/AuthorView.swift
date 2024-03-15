@@ -43,7 +43,7 @@ struct AuthorView: View {
         let linkedinString = "https://www.linkedin.com/in/huan-zhang2202/"
         Button  {
             if let linkedinUrl = URL(string: linkedinString) {
-              UIApplication.shared.open(linkedinUrl)
+                UIApplication.shared.open(linkedinUrl)
             }
         } label: {
             Text("Huan Zhang's LinkedIn".local)
@@ -65,7 +65,7 @@ struct AuthorView: View {
         let linkedinString = "https://github.com/zhang54289/ConvertUnit"
         Button  {
             if let linkedinUrl = URL(string: linkedinString) {
-              UIApplication.shared.open(linkedinUrl)
+                UIApplication.shared.open(linkedinUrl)
             }
         } label: {
             Text("GitHub Source Code")

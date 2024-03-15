@@ -38,6 +38,7 @@ extension UnitType {
         }
     }
 }
+
 struct Unit: Identifiable, Equatable, Hashable {
     var id = UUID()
     var name: String
@@ -67,7 +68,7 @@ struct UnitMenu: Identifiable, Hashable {
     var rightIndex: Int
     var leftList: [Unit]
     var rightList: [Unit]
-
+    
     init(name: String, type: UnitType = .length, color: Color, unitList: [Unit] = []) {
         self.name = name
         self.type = type

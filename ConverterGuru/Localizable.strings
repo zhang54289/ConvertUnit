@@ -1,10 +1,10 @@
 /*
-  Localizable.strings
-  ConverterGuru
-
-  Created by zhanghuan on 3/2/24.
-  
-*/
+ Localizable.strings
+ ConverterGuru
+ 
+ Created by zhanghuan on 3/2/24.
+ 
+ */
 
 "ConverterGuru" = "单位转换";
 "Only support max " = "最大只支持 ";
@@ -104,4 +104,5 @@
 "Dry Gallon" = "干加仑";
 "Bushel" = "蒲式耳";
 "Barrel" = "桶";
+"Height" = "身高";
 "" = "";

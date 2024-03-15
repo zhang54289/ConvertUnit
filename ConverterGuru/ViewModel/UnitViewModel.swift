@@ -18,9 +18,9 @@ final class UnitViewModel: ObservableObject {
     let leftFunc: (() -> Void)?
     let rightFunc: (() -> Void)?
     let listHeight: CGFloat
-
+    
     private var cancellables = Set<AnyCancellable>()
-
+    
     init(_ proxy: ScrollViewProxy, _ scrollToID: UUID, _ isLeft: Bool, _ index: Int, listHeight: CGFloat,
          leftFunc: (() -> Void)?, rightFunc: (() -> Void)?) {
         self.proxy = proxy
@@ -34,7 +34,8 @@ final class UnitViewModel: ObservableObject {
         $geoMidY
             .debounce(for: .seconds(0.1), scheduler: RunLoop.main)
             .sink { [weak self] _ in
-                if abs((self?.geoMidY ?? 0) - 293) < 35.5 {
+                guard self?.geoMidY != 0 else { return }
+                if abs((self?.geoMidY ?? 0) - (self?.theMiddle ?? 0)) < 35.5 {
                     withAnimation {
                         proxy.scrollTo(self?.scrollToID, anchor: .center)
                     }
@@ -50,5 +51,20 @@ final class UnitViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    var theMiddle: CGFloat {
+        switch UIScreen.main.bounds.height {
+        case 667.0:
+            return 187.0
+        case 736.0:
+            return 202.0
+        case 852.0:
+            return 270.33
+        case 932.0:
+            return 291.83
+        default:
+            return 292
+        }
     }
 }

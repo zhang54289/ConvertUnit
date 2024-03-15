@@ -45,9 +45,9 @@ enum CalcButton: String {
 struct CalculatorView: View {
     @ObservedObject var viewModel: ConverterGuruMenuViewModel
     @EnvironmentObject var colorSettings: ColorSettings
-
+    
     @Binding var inputNumber: Double
-
+    
     @State var value = "0" {
         didSet {
             inputNumber = Double(showValue) ?? 0
@@ -117,25 +117,25 @@ struct CalculatorView: View {
     
     @ViewBuilder
     private func buttonContent(item: CalcButton) -> some View {
-            if item == .swap {
-                let imagePadding: CGFloat = 16
-                Image(systemName: "arrow.triangle.2.circlepath")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: buttonWidth(item: item) - imagePadding * 2,
-                           height: buttonHeight() - imagePadding * 2)
-                    .padding(imagePadding)
-                    .background(item.buttonColor)
-                    .foregroundColor(.white)
-                    .cornerRadius(buttonWidth(item: item) / 2)
-            } else {
-                Text(item.rawValue)
-                    .font(.system(size: [.clear, .back].contains(item) ? 26 : 32))
-                    .frame(width: buttonWidth(item: item), height: buttonHeight())
-                    .background(item.buttonColor)
-                    .foregroundColor(.white)
-                    .cornerRadius(buttonWidth(item: item) / 2)
-            }
+        if item == .swap {
+            let imagePadding: CGFloat = 16
+            Image(systemName: "arrow.triangle.2.circlepath")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: buttonWidth(item: item) - imagePadding * 2,
+                       height: buttonHeight() - imagePadding * 2)
+                .padding(imagePadding)
+                .background(item.buttonColor)
+                .foregroundColor(.white)
+                .cornerRadius(buttonWidth(item: item) / 2)
+        } else {
+            Text(item.rawValue)
+                .font(.system(size: [.clear, .back].contains(item) ? 26 : 32))
+                .frame(width: buttonWidth(item: item), height: buttonHeight())
+                .background(item.buttonColor)
+                .foregroundColor(.white)
+                .cornerRadius(buttonWidth(item: item) / 2)
+        }
     }
     
     private func didTap(button: CalcButton) {
@@ -199,4 +199,3 @@ struct CalculatorView: View {
         return (UIScreen.main.bounds.width - (5*size)) / 4
     }
 }
-

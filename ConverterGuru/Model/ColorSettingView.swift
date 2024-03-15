@@ -10,11 +10,11 @@ import Foundation
 
 extension String {
     var local: String {
-//        if Locale.current.language.languageCode?.identifier.hasPrefix("zh") == true {
-//            return NSLocalizedString(self, comment: "")
-//        } else {
+        if Locale.current.language.languageCode?.identifier.hasPrefix("zh") == true {
+            return NSLocalizedString(self, comment: "")
+        } else {
             return self
-//        }
+        }
     }
 }
 
@@ -59,7 +59,7 @@ class ColorSettings: ObservableObject {
             UserDefaults.standard.setColor(color: UIColor(focusBackgroundColor), forKey: "FocusBackgroundColor")
         }
     }
-
+    
     @Published var unitPadColor: Color {
         didSet {
             UserDefaults.standard.setColor(color: UIColor(unitPadColor), forKey: "UnitPadColor")
@@ -71,31 +71,31 @@ class ColorSettings: ObservableObject {
             UserDefaults.standard.setColor(color: UIColor(menuBackgroudColor), forKey: "MenuBackgroundColor")
         }
     }
-
+    
     @Published var toastBackgroudColor: Color {
         didSet {
             UserDefaults.standard.setColor(color: UIColor(toastBackgroudColor), forKey: "ToastBackgroundColor")
         }
     }
-
+    
     @Published var keypadBackgroudColor: Color {
         didSet {
             UserDefaults.standard.setColor(color: UIColor(keypadBackgroudColor), forKey: "KeypadBackgroundColor")
         }
     }
-
+    
     @Published var numberKeyColor: Color {
         didSet {
             UserDefaults.standard.setColor(color: UIColor(numberKeyColor), forKey: "NumberKeyColor")
         }
     }
-
+    
     @Published var listBackgroundColor: Color {
         didSet {
             UserDefaults.standard.setColor(color: UIColor(listBackgroundColor), forKey: "ListBackgroundColor")
         }
     }
-
+    
     init() {
         self.focusColor  = Color(UserDefaults.standard.colorForKey(key: "FocusColor") ?? .yellow)
         self.focusBackgroundColor  = Color(UserDefaults.standard.colorForKey(key: "FocusBackgroundColor") ?? .green)
@@ -110,7 +110,7 @@ class ColorSettings: ObservableObject {
 
 struct ColorSettingView: View {
     @EnvironmentObject var colorSettings: ColorSettings
-
+    
     var body: some View {
         ColorPicker("Focus color".local, selection: $colorSettings.focusColor)
         ColorPicker("Focus background color".local, selection: $colorSettings.focusBackgroundColor)

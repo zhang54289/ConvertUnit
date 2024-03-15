@@ -20,7 +20,7 @@ final class ConverterGuruMenuViewModel: ObservableObject {
     var leftScrollProxy: ScrollViewProxy?
     var rightScrollProxy: ScrollViewProxy?
     @Published var isShowSetting = false
-
+    
     init() {
         menuList = [UnitMenu(name: "Length".local, type: .length, color: .red,
                              unitList: [Unit(name: "Inch".local, n: "in", toMetic: 0.0254, isEmperial: true),
@@ -89,7 +89,6 @@ final class ConverterGuruMenuViewModel: ObservableObject {
                     UnitMenu(name: "Height".local, type: .height, color: .gray,
                              unitList: [Unit(name: "Centimeter".local, n: "cm", toMetic: 1, isEmperial: false),
                                         Unit(name: "Feet".local, n: "Inch".local, toMetic: 1, isEmperial: true)])]
-
         
         self.leftNumber = 0
         self.rightNumber = 0
@@ -124,9 +123,10 @@ final class ConverterGuruMenuViewModel: ObservableObject {
         }
         let endIndex = valueString.index(valueString.endIndex, offsetBy: -5)
         let decimalString = valueString[..<endIndex] + "." + valueString[endIndex...]
-        return decimalString.trimmingCharacters(in: CharacterSet(charactersIn: "0"))
+        let ret = decimalString.trimmingCharacters(in: CharacterSet(charactersIn: "0"))
             .replacingOccurrences(of: "\\.$", with: "", options: .regularExpression)
             .replacingOccurrences(of: "^\\.", with: "0.", options: .regularExpression)
+        return ret.isEmpty ? "0" : ret
     }
     
     func scrollToFirstUnit(proxy: ScrollViewProxy, unitMenu: UnitMenu, isLeft: Bool) {

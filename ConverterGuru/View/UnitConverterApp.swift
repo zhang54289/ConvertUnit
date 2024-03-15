@@ -21,7 +21,7 @@ struct ConverterGuruApp: App {
 
 struct ContentView: View {
     @EnvironmentObject var colorSettings: ColorSettings
-
+    
     var body: some View {
         NavigationView {
             VStack {
