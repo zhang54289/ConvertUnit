@@ -10,7 +10,7 @@ import SwiftUI
 struct AuthorView: View {
     var body: some View {
         VStack(spacing: 40) {
-            picView
+//            picView
             if Locale.current.language.languageCode?.identifier == "en" {
                 linkedInView
             }

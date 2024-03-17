@@ -134,26 +134,30 @@ final class ConverterGuruMenuViewModel: ObservableObject {
         if let myIndex = UserDefaults.standard.object(forKey: keyWord) as? Int {
             if isLeft {
                 leftScrollProxy = proxy
-                leftIndex = myIndex
                 withAnimation {
                     proxy.scrollTo(leftList[myIndex].id, anchor: .center)
+                    leftIndex = myIndex
                 }
             } else {
                 rightScrollProxy = proxy
-                rightIndex = myIndex
                 withAnimation {
                     proxy.scrollTo(rightList[myIndex].id, anchor: .center)
+                    rightIndex = myIndex
                 }
             }
         } else {
             if isLeft {
                 leftScrollProxy = proxy
-                leftIndex = leftList.firstIndex(where: { $0.isEmperial }) ?? 0
+                withAnimation {
+                    leftIndex = leftList.firstIndex(where: { $0.isEmperial }) ?? 0
+                }
                 UserDefaults.standard.set(leftIndex, forKey: keyWord)
                 scrollToFirstUnit(proxy: proxy, unitMenu: unitMenu, isLeft: isLeft)
             } else {
                 rightScrollProxy = proxy
-                rightIndex = rightList.firstIndex(where: { !$0.isEmperial }) ?? 0
+                withAnimation {
+                    rightIndex = rightList.firstIndex(where: { !$0.isEmperial }) ?? 0
+                }
                 UserDefaults.standard.set(rightIndex, forKey: keyWord)
                 scrollToFirstUnit(proxy: proxy, unitMenu: unitMenu, isLeft: isLeft)
             }

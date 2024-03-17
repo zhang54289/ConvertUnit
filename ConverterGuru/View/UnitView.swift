@@ -37,6 +37,7 @@ struct UnitView: View {
                     .cornerRadius(3)
                     .overlay(
                         unitOverlayView
+                            .scaleEffect(isFocused ? 1.0 : 0.5)
                     )
                     .padding(5)
             }
@@ -69,7 +70,7 @@ struct UnitView: View {
                     Text(" ")
                 }
             }
-            HStack(spacing: 10) {
+            HStack(spacing: 0) {
                 Text(unit.name)
                 Spacer()
                 Text(unit.n)
