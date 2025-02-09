@@ -68,11 +68,11 @@ struct ToastView: View {
         .edgesIgnoringSafeArea(.all)
         .onChange(of: toast.isVisible) { _, newValue in
             if newValue {
-                withAnimation(.easeInOut) {
+                withAnimation(.easeInOut(duration: 1.0)) {
                     yOffset = 0
                 }
             } else {
-                withAnimation(.easeInOut) {
+                withAnimation(.easeInOut(duration: 1.0)) {
                     yOffset = UIScreen.main.bounds.height
                 }
                 hideTimer?.invalidate()
