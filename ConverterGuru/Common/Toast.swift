@@ -66,7 +66,7 @@ struct ToastView: View {
         }
         .frame(maxWidth: .infinity, alignment: .bottom)
         .edgesIgnoringSafeArea(.all)
-        .onChange(of: toast.isVisible) { newValue in
+        .onChange(of: toast.isVisible) { _, newValue in
             if newValue {
                 withAnimation(.easeInOut) {
                     yOffset = 0
@@ -104,7 +104,7 @@ struct ToggleView: View {
             + Text("\(settings.isSwitchedOn ? "On".local : "Off".local)")
                 .foregroundColor(settings.isSwitchedOn ? .red: .green)
         }
-        .onChange(of: settings.isSwitchedOn) { value in
+        .onChange(of: settings.isSwitchedOn) { _, value in
             if !value {
                 Toast.shared.isVisible = false
             }

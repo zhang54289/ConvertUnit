@@ -46,12 +46,12 @@ struct UnitListView: View {
                                                      proxy.scrollTo(unitMenu.unitList[index].id, anchor: .center)
                                                  }
                                              }
-                                             .onChange(of: viewModel.leftIndex) { index in
+                                             .onChange(of: viewModel.leftIndex) { _, index in
                                                  guard (ConverterGuruMenuViewModel.selectedMenu == unitMenu.type) else { return }
                                                  let keyWord = "firstIndex" + unitMenu.type.name + "Left"
                                                  UserDefaults.standard.set(index, forKey: keyWord)
                                              }
-                                             .onChange(of: viewModel.rightIndex) { index in
+                                             .onChange(of: viewModel.rightIndex) { _, index in
                                                  guard (ConverterGuruMenuViewModel.selectedMenu == unitMenu.type) else { return }
                                                  let keyWord = "firstIndex" + unitMenu.type.name + "Right"
                                                  UserDefaults.standard.set(index, forKey: keyWord)

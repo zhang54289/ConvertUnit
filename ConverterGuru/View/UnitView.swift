@@ -31,7 +31,7 @@ struct UnitView: View {
                         .cornerRadius(3)
                 }
                 (isFocused ? colorSettings.focusBackgroundColor : colorSettings.unitPadColor)
-                    .onChange(of: geoMidY) { newValue in
+                    .onChange(of: geoMidY) { _, newValue in
                         unitViewModel.geoMidY = newValue
                     }
                     .cornerRadius(3)
