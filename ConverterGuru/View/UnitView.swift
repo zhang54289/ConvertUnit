@@ -37,7 +37,7 @@ struct UnitView: View {
                     .cornerRadius(3)
                     .overlay(
                         unitOverlayView
-                            .scaleEffect(isFocused ? 1.0 : 0.5)
+                            .scaleEffect(isFocused ? 1.0 : 0.8)
                     )
                     .padding(5)
             }
